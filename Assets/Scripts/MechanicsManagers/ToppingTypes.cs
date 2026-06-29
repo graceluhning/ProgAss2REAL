@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public enum ToppingTypes
+{
+  Cup,
+  Vanilla,
+  Chocolate,
+  Strawberry,
+  Mint,
+  Mango,
+  Ube
+}

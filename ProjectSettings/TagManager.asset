@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Cup
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Placers
+  - Water
+  - UI
+  - Cups
+  - IceCream
+  - Toppings
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Table
+    uniqueID: 3428861263
+    locked: 0
+  - name: InCups
+    uniqueID: 807320673
+    locked: 0
+  - name: PlacedCup
+    uniqueID: 2488050207
+    locked: 0
+  - name: ToppingOrigins
+    uniqueID: 2576795683
+    locked: 0
+  - name: Topping
+    uniqueID: 869089173
+    locked: 0
+  m_RenderingLayers:
+  - Default
