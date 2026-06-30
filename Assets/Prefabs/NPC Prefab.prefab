@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3840146375634340379}
   - component: {fileID: 3716104560690971264}
   - component: {fileID: 2494896330537713700}
+  - component: {fileID: -9046136069818919707}
   m_Layer: 0
   m_Name: NPC Prefab
   m_TagString: Untagged
@@ -138,3 +139,15 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &-9046136069818919707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055838142088003039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d18b376936b4d940acb2108c1e875be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
