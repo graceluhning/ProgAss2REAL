@@ -4,6 +4,7 @@ public class ToppingSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject toppingPrefab;
     [SerializeField] ToppingTypes toppingType;
+    
 
     private void OnMouseDown()
     {
@@ -16,4 +17,6 @@ public class ToppingSpawner : MonoBehaviour
 
         topping.GetComponent<DraggedTopping>().BeginDrag();
     }
+    
+    
 }

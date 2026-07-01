@@ -5,28 +5,48 @@ using TMPro;
 public class ShopUILogic : MonoBehaviour
 {
     [SerializeField] private MoneyManager _moneyManager;
+    [SerializeField] private DayTimer timer;
     
-    [SerializeField] GameObject marketUI;
+    [SerializeField] GameObject nextDayUI;
 
     [SerializeField] private Button strawberryButton;
     [SerializeField] TMP_Text strawText;
     public bool strawBought;
+    [SerializeField] private GameObject strawSpawner;
     
     [SerializeField] private Button chocolateButton;
     [SerializeField] TMP_Text chocolateText;
     public bool chocolateBought;
+    [SerializeField] private GameObject chocolateSpawner;
+
     
     [SerializeField] private Button mintButton;
     [SerializeField] TMP_Text mintText;
     public bool mintBought;
-    
-    public void ExitShop()
-    {
-        marketUI.SetActive(false);
+    [SerializeField] private GameObject mintSpawner;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    
+    [SerializeField] private Button mangoButton;
+    [SerializeField] TMP_Text mangoText;
+    public bool mangoBought;
+    [SerializeField] private GameObject mangoSpawner;
+
+    
         
+    [SerializeField] private Button cookiesCreamButton;
+    [SerializeField] TMP_Text cookiesCreamText;
+    public bool cookiesCreamBought;
+    [SerializeField] private GameObject cookiesCreamSpawner;
+    
+    
+    public void NextDay() // when next day pressed, reset timer
+    {
+        nextDayUI.SetActive(false);
+        Time.timeScale = 1f;
+
+        timer.currentTime = timer.startTime;
+        
+        //todo - set day count to +1, add difficulty in response to number
     }
 
     public void BuyChocolate()
@@ -37,6 +57,11 @@ public class ShopUILogic : MonoBehaviour
         {
             _moneyManager.RemoveMoney(10);
             chocolateBought = true;
+            
+            if (chocolateBought)
+            {
+                chocolateSpawner.SetActive(true);
+            }
             
             
             chocolateText.text = "BOUGHT";
@@ -60,6 +85,11 @@ public class ShopUILogic : MonoBehaviour
         {
             _moneyManager.RemoveMoney(20);
             strawBought = true;
+            
+            if (strawBought)
+            {
+                strawSpawner.SetActive(true);
+            }
 
             strawText.text = "BOUGHT";
             strawberryButton.interactable = false;
@@ -82,14 +112,19 @@ public class ShopUILogic : MonoBehaviour
         {
             _moneyManager.RemoveMoney(30);
             mintBought = true;
+            
+            if (mintBought)
+            {
+                mintSpawner.SetActive(true);
+            }
 
             mintText.text = "BOUGHT";
             mintButton.interactable = false;
-            
+
 
             Debug.Log("Bought Mint!");
         }
-        
+
         else
         {
             Debug.Log("Not enough coins!");
@@ -97,6 +132,62 @@ public class ShopUILogic : MonoBehaviour
 
     }
     
+    public void BuyMango()
+    {
+        if (mangoBought) return;
+
+        if (_moneyManager.Money >= 40)
+        {
+            _moneyManager.RemoveMoney(40);
+            mangoBought = true;
+            
+            if (mangoBought)
+            {
+                mangoSpawner.SetActive(true);
+            }
+
+            mangoText.text = "BOUGHT";
+            mangoButton.interactable = false;
+
+
+            Debug.Log("Bought Mango!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
     
+    public void BuyCookiesCream()
+    {
+        if (cookiesCreamBought) return;
+
+        if (_moneyManager.Money >= 50)
+        {
+            _moneyManager.RemoveMoney(50);
+            cookiesCreamBought = true;
+            
+            if (cookiesCreamBought)
+            {
+                cookiesCreamSpawner.SetActive(true);
+            }
+
+            cookiesCreamText.text = "BOUGHT";
+            cookiesCreamButton.interactable = false;
+
+
+            Debug.Log("Bought Cookies and Cream!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+
+
 }
 

@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 2844870472567631018}
   - component: {fileID: 1920261389104450602}
   - component: {fileID: 6250719090028826195}
+  - component: {fileID: -1743495550747784714}
   - component: {fileID: 5361711142256634747}
   - component: {fileID: 1734052521116042775}
-  - component: {fileID: -1743495550747784714}
   m_Layer: 6
   m_Name: ParfaitCup
   m_TagString: Cup
@@ -142,6 +142,8 @@ MonoBehaviour:
   strawberryCupPrefab: {fileID: 5511731557485548628, guid: 2cb597ed436e4ab42b71f700f8271a7b, type: 3}
   chocolateCupPrefab: {fileID: 5511731557485548628, guid: 55c7de83d95d9ea45996cd02c5d62278, type: 3}
   mintCupPrefab: {fileID: 5511731557485548628, guid: 9aee1cd7e37bc8e41ad8be930e996040, type: 3}
+  mangoCupPrefab: {fileID: 5511731557485548628, guid: 0b6d5bd2b7a38e94282e25afb9aefc78, type: 3}
+  cookiesCreamCupPrefab: {fileID: 5511731557485548628, guid: a4c2b7c79ad417048a5a22561c5d3658, type: 3}
   pos1: {fileID: 473251612279070287}
   pos2: {fileID: 7235063637785809647}
 --- !u!114 &6250719090028826195
@@ -157,6 +159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingType: 0
+--- !u!114 &-1743495550747784714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2759981428329322341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a463a2ff19344458fde7423e425c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &5361711142256634747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,18 +244,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1743495550747784714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759981428329322341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a463a2ff19344458fde7423e425c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9071375968325094059
 GameObject:
   m_ObjectHideFlags: 0

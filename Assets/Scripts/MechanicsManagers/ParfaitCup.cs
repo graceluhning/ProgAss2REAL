@@ -7,6 +7,8 @@ public class ParfaitCup : MonoBehaviour
     [SerializeField] private GameObject strawberryCupPrefab;
     [SerializeField] private GameObject chocolateCupPrefab;
     [SerializeField] private GameObject mintCupPrefab;
+    [SerializeField] private GameObject mangoCupPrefab;
+    [SerializeField] private GameObject cookiesCreamCupPrefab;
 
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
@@ -63,6 +65,8 @@ public class ParfaitCup : MonoBehaviour
             ToppingTypes.Strawberry => strawberryCupPrefab,
             ToppingTypes.Chocolate => chocolateCupPrefab,
             ToppingTypes.Mint => mintCupPrefab,
+            ToppingTypes.Mango => mangoCupPrefab,
+            ToppingTypes.CookiesCream => cookiesCreamCupPrefab,
             ToppingTypes.Cup => cupPrefab,
             _ => null
         };
