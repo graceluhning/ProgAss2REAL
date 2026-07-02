@@ -38,15 +38,19 @@ public class ShopUILogic : MonoBehaviour
     public bool cookiesCreamBought;
     [SerializeField] private GameObject cookiesCreamSpawner;
     
+    public DayCounter dayCounter;
     
-    public void NextDay() // when next day pressed, reset timer
+    
+    public void NextDay() // when next day pressed, reset timer and begin next day
     {
         nextDayUI.SetActive(false);
         Time.timeScale = 1f;
 
         timer.currentTime = timer.startTime;
+
+        dayCounter.NextDay();
+        Debug.Log(dayCounter.dayCount);
         
-        //todo - set day count to +1, add difficulty in response to number
     }
 
     public void BuyChocolate()

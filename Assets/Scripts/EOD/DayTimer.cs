@@ -17,15 +17,14 @@ public class DayTimer : MonoBehaviour
 
     private void Update()
     {
+        currentTime -= Time.deltaTime;
+
+        timerText.text = currentTime.ToString();
+        
         if (currentTime <= 0f)
         {
             endDayUI.SetActive(true);
             Time.timeScale = 0f;
         }
-
-        currentTime -= Time.deltaTime;
-
-        if (currentTime < 0f)
-        timerText.text = currentTime.ToString();
     }
 }

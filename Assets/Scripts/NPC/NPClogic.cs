@@ -3,7 +3,7 @@ using UnityEngine;
 public class NPClogic : MonoBehaviour
 {
     public SpawnPoints spawnPoint;
-    private MoneyManager moneyManager;
+    public MoneyManager moneyManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
