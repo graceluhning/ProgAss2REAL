@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8280685012472536098}
   m_Layer: 7
   m_Name: MangoScoop
-  m_TagString: Untagged
+  m_TagString: IceCream
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69d16476a6fb72439088dda99c9bb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toppingPrice: 0
   toppingType: 5
 --- !u!50 &-8280685012472536098
 Rigidbody2D:

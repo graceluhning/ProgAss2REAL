@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Cup
+  - RealTopping
+  - IceCream
   layers:
   - Default
   - TransparentFX

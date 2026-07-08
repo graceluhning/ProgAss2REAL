@@ -18,25 +18,37 @@ public class ShopUILogic : MonoBehaviour
     [SerializeField] TMP_Text chocolateText;
     public bool chocolateBought;
     [SerializeField] private GameObject chocolateSpawner;
-
     
     [SerializeField] private Button mintButton;
     [SerializeField] TMP_Text mintText;
     public bool mintBought;
     [SerializeField] private GameObject mintSpawner;
-
     
     [SerializeField] private Button mangoButton;
     [SerializeField] TMP_Text mangoText;
     public bool mangoBought;
     [SerializeField] private GameObject mangoSpawner;
-
     
         
     [SerializeField] private Button cookiesCreamButton;
     [SerializeField] TMP_Text cookiesCreamText;
     public bool cookiesCreamBought;
     [SerializeField] private GameObject cookiesCreamSpawner;
+    
+    [SerializeField] private Button cherryButton;
+    [SerializeField] TMP_Text cherryText;
+    public bool cherryBought;
+    [SerializeField] private GameObject cherrySpawner;
+    
+    [SerializeField] private Button whippedCreamButton;
+    [SerializeField] TMP_Text whippedCreamText;
+    public bool whippedCreamBought;
+    [SerializeField] private GameObject whippedCreamSpawner;
+    
+    [SerializeField] private Button sprinklesButton;
+    [SerializeField] TMP_Text sprinklesText;
+    public bool sprinklesBought;
+    [SerializeField] private GameObject sprinklesSpawner;
     
     public DayCounter dayCounter;
     
@@ -183,6 +195,90 @@ public class ShopUILogic : MonoBehaviour
 
 
             Debug.Log("Bought Cookies and Cream!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+    
+    public void BuyCherry()
+    {
+        if (cherryBought) return;
+
+        if (_moneyManager.Money >= 50)
+        {
+            _moneyManager.RemoveMoney(50);
+            cherryBought = true;
+            
+            if (cherryBought)
+            {
+                cherrySpawner.SetActive(true);
+            }
+
+            cherryText.text = "BOUGHT";
+            cherryButton.interactable = false;
+
+
+            Debug.Log("Bought Cherry!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+    
+    public void BuyWhippedCream()
+    {
+        if (whippedCreamBought) return;
+
+        if (_moneyManager.Money >= 50)
+        {
+            _moneyManager.RemoveMoney(50);
+            whippedCreamBought = true;
+            
+            if (whippedCreamBought)
+            {
+                whippedCreamSpawner.SetActive(true);
+            }
+
+            whippedCreamText.text = "BOUGHT";
+            whippedCreamButton.interactable = false;
+
+
+            Debug.Log("Bought Whipped Cream!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+    
+    public void BuySprinkles()
+    {
+        if (sprinklesBought) return;
+
+        if (_moneyManager.Money >= 50)
+        {
+            _moneyManager.RemoveMoney(50);
+            sprinklesBought = true;
+            
+            if (sprinklesBought)
+            {
+                sprinklesSpawner.SetActive(true);
+            }
+
+            sprinklesText.text = "BOUGHT";
+            sprinklesButton.interactable = false;
+
+
+            Debug.Log("Bought Sprinkles!");
         }
 
         else

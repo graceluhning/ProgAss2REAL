@@ -20,4 +20,5 @@ public class NPClogic : MonoBehaviour
         if (spawnPoint != null)
             spawnPoint.occupied = false;
     }
+    
 }

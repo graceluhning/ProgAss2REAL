@@ -9,16 +9,21 @@ public class ParfaitCup : MonoBehaviour
     [SerializeField] private GameObject mintCupPrefab;
     [SerializeField] private GameObject mangoCupPrefab;
     [SerializeField] private GameObject cookiesCreamCupPrefab;
+    [SerializeField] private GameObject cherryPlacedPrefab;
+    [SerializeField] private GameObject whippedCreamPlacedPrefab;
+    [SerializeField] private GameObject sprinklesPlacedPrefab;
 
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
+    [SerializeField] private Transform pos3;
 
     private bool slot1;
     private bool slot2;
+    private bool slot3;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-            if (!other.CompareTag("Cup"))
+            if (other.CompareTag("IceCream"))
             {
                 DraggedTopping topping = other.GetComponent<DraggedTopping>();
                 if (topping == null) return;
@@ -48,6 +53,32 @@ public class ParfaitCup : MonoBehaviour
 
                 SpawnCupVisual(type, targetSlot.position);
             }
+
+            else if (other.CompareTag("RealTopping"))
+            {
+                DraggedTopping topping = other.GetComponent<DraggedTopping>();
+                if (topping == null) return;
+                
+                if (!slot1 || !slot2)
+                {
+                    Debug.Log("Can't place topping without ice cream!");
+                    return;
+                }
+                
+                if (slot3)
+                {
+                    Debug.Log("Cup Full");
+                    return;
+                }
+
+                ToppingTypes type = topping.toppingType;
+
+                slot3 = true;
+
+                Destroy(other.gameObject);
+
+                SpawnCupVisual(type, pos3.position);
+            }
     }
 
     private void SpawnCupVisual(ToppingTypes type, Vector3 position)
@@ -68,6 +99,9 @@ public class ParfaitCup : MonoBehaviour
             ToppingTypes.Mango => mangoCupPrefab,
             ToppingTypes.CookiesCream => cookiesCreamCupPrefab,
             ToppingTypes.Cup => cupPrefab,
+            ToppingTypes.Cherry => cherryPlacedPrefab,
+            ToppingTypes.WhippedCream => whippedCreamPlacedPrefab,
+            ToppingTypes.Sprinkles => sprinklesPlacedPrefab,
             _ => null
         };
     }

@@ -8,5 +8,8 @@ public enum ToppingTypes
   Strawberry,
   Mint,
   Mango,
-  CookiesCream
+  CookiesCream,
+  Cherry,
+  WhippedCream,
+  Sprinkles
 }
