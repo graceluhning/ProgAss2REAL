@@ -4,8 +4,10 @@ public class DraggedTopping : MonoBehaviour
 {
     private bool isDragging;
     private bool placedSuccessfully;
-
+    
+    public int toppingPrice;
     public ToppingTypes toppingType;
+    
     public void BeginDrag()
     {
         isDragging = true;
@@ -36,6 +38,10 @@ public class DraggedTopping : MonoBehaviour
 
     public void SetPlaced()
     {
+        DraggedTopping topping = gameObject.GetComponent<DraggedTopping>();
+
+        toppingPrice += topping.toppingPrice;
+        
         placedSuccessfully = true;
     }
 }

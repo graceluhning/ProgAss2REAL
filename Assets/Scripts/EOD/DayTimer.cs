@@ -1,30 +1,58 @@
 using UnityEngine;
-using TMPro;
+using  UnityEngine.UI;
 
 public class DayTimer : MonoBehaviour
 {
-    [SerializeField] public float startTime = 60f;
-    [SerializeField] public TMP_Text timerText;
-
-    public float currentTime;
+    [SerializeField] private Image timerImage;
     [SerializeField] public GameObject endDayUI;
+    
+    [SerializeField] private float startTime = 60f;
+    
+    private float currentTime;
+    private bool isTimerRunning = false;
 
-    private void Start()
+    void Start()
     {
         currentTime = startTime;
-        Debug.Log(currentTime);
+        StartTimer();
     }
 
-    private void Update()
+    void Update()
     {
-        currentTime -= Time.deltaTime;
+        if (!isTimerRunning)
+            return;
 
-        timerText.text = currentTime.ToString();
-        
-        if (currentTime <= 0f)
+        if (currentTime > 0)
         {
-            endDayUI.SetActive(true);
-            Time.timeScale = 0f;
+            currentTime -= Time.deltaTime;
+            timerImage.fillAmount = currentTime / startTime;
+        }
+        else
+        {
+            TimerFinished();
         }
     }
+    
+    public void StartTimer()
+    {
+        isTimerRunning = true;
+    }
+
+    public void ResetTimer()
+    {
+        currentTime = startTime;
+        timerImage.fillAmount = 1f;
+        isTimerRunning = true;
+    }
+
+    public void TimerFinished()
+    {
+        isTimerRunning = false;
+        currentTime = 0;
+        timerImage.fillAmount = 0f;
+
+        Time.timeScale = 0f;
+        endDayUI.SetActive(true);
+    }
 }
+

@@ -46,7 +46,7 @@ public class ShopUILogic : MonoBehaviour
         nextDayUI.SetActive(false);
         Time.timeScale = 1f;
 
-        timer.currentTime = timer.startTime;
+        timer.ResetTimer();
 
         dayCounter.NextDay();
         Debug.Log(dayCounter.dayCount);
