@@ -145,7 +145,7 @@ MonoBehaviour:
   mintCupPrefab: {fileID: 5511731557485548628, guid: 9aee1cd7e37bc8e41ad8be930e996040, type: 3}
   mangoCupPrefab: {fileID: 5511731557485548628, guid: 0b6d5bd2b7a38e94282e25afb9aefc78, type: 3}
   cookiesCreamCupPrefab: {fileID: 5511731557485548628, guid: a4c2b7c79ad417048a5a22561c5d3658, type: 3}
-  cherryPlacedPrefab: {fileID: 5511731557485548628, guid: 9d672d81e4196a4428aa0b70d9ffa5e2, type: 3}
+  cherryPlacedPrefab: {fileID: 5511731557485548628, guid: 0d96abb5ff1616a4fba44f999aa047e0, type: 3}
   whippedCreamPlacedPrefab: {fileID: 5511731557485548628, guid: f7b8c3f0f87f30d4b884f4aa7065b72c, type: 3}
   sprinklesPlacedPrefab: {fileID: 5511731557485548628, guid: bae81073d41a9444bbd8ba08c7f4c0a7, type: 3}
   pos1: {fileID: 473251612279070287}
