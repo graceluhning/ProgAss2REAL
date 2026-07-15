@@ -1,16 +1,28 @@
 using UnityEngine;
 
-public class ToppingPrices : MonoBehaviour
+public static class ToppingPrices
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static int GetPrice(ToppingTypes topping)
     {
-        
-    }
+        switch (topping)
+        {
+            case ToppingTypes.Vanilla:
+                return 2;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            case ToppingTypes.Chocolate:
+                return 3;
+
+            case ToppingTypes.Strawberry:
+                return 3;
+
+            case ToppingTypes.Cherry:
+                return 1;
+
+            case ToppingTypes.Sprinkles:
+                return 1;
+
+            default:
+                return 0;
+        }
     }
 }

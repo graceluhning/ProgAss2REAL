@@ -10,37 +10,38 @@ public class MoneyManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Created MoneyManager");
-        
         Instance = this;
     }
+
     private void Start()
     {
         Money = 250;
         UpdateMoneyUI();
     }
 
-
     public void AddMoney(int amount)
     {
         Money += amount;
+
+        Debug.Log("Earned $" + amount);
+        Debug.Log("Total Money: $" + Money);
+
         UpdateMoneyUI();
-        
     }
 
-    public void RemoveMoney (int amount)
+    public void RemoveMoney(int amount)
     {
         Money -= amount;
-        if (Money < 0) Money = 0;
-        UpdateMoneyUI();
 
+        if (Money < 0)
+            Money = 0;
+
+        UpdateMoneyUI();
     }
-    
-    private void UpdateMoneyUI ()
+
+    private void UpdateMoneyUI()
     {
         if (moneyText != null)
-        {
             moneyText.text = "COINS: " + Money;
-        }
     }
 }

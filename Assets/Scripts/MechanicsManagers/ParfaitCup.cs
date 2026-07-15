@@ -21,64 +21,76 @@ public class ParfaitCup : MonoBehaviour
     private bool slot2;
     private bool slot3;
 
+    public int totalPrice = 2;
+
+    public void AddTopping(ToppingTypes type)
+    {
+        totalPrice += ToppingPrices.GetPrice(type);
+        Debug.Log("Current Price: $" + totalPrice);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.CompareTag("IceCream"))
+        if (other.CompareTag("IceCream"))
+        {
+            DraggedTopping topping = other.GetComponent<DraggedTopping>();
+            if (topping == null) return;
+
+            if (slot1 && slot2)
             {
-                DraggedTopping topping = other.GetComponent<DraggedTopping>();
-                if (topping == null) return;
-
-                if (slot1 && slot2)
-                {
-                    Debug.Log("Cup Full");
-                    return;
-                }
-
-                ToppingTypes type = topping.toppingType;
-
-                Transform targetSlot = null;
-
-                if (!slot1)
-                {
-                    targetSlot = pos1;
-                    slot1 = true;
-                }
-                else if (!slot2)
-                {
-                    targetSlot = pos2;
-                    slot2 = true;
-                }
-
-                Destroy(other.gameObject);
-
-                SpawnCupVisual(type, targetSlot.position);
+                Debug.Log("Cup Full");
+                return;
             }
 
-            else if (other.CompareTag("RealTopping"))
+            ToppingTypes type = topping.toppingType;
+
+            Transform targetSlot = null;
+
+            if (!slot1)
             {
-                DraggedTopping topping = other.GetComponent<DraggedTopping>();
-                if (topping == null) return;
-                
-                if (!slot1 || !slot2)
-                {
-                    Debug.Log("Can't place topping without ice cream!");
-                    return;
-                }
-                
-                if (slot3)
-                {
-                    Debug.Log("Cup Full");
-                    return;
-                }
-
-                ToppingTypes type = topping.toppingType;
-
-                slot3 = true;
-
-                Destroy(other.gameObject);
-
-                SpawnCupVisual(type, pos3.position);
+                targetSlot = pos1;
+                slot1 = true;
             }
+            else if (!slot2)
+            {
+                targetSlot = pos2;
+                slot2 = true;
+            }
+
+            Destroy(other.gameObject);
+
+            SpawnCupVisual(type, targetSlot.position);
+
+           
+            AddTopping(type);
+        }
+        else if (other.CompareTag("RealTopping"))
+        {
+            DraggedTopping topping = other.GetComponent<DraggedTopping>();
+            if (topping == null) return;
+
+            if (!slot1 || !slot2)
+            {
+                Debug.Log("Can't place topping without ice cream!");
+                return;
+            }
+
+            if (slot3)
+            {
+                Debug.Log("Cup Full");
+                return;
+            }
+
+            ToppingTypes type = topping.toppingType;
+
+            slot3 = true;
+
+            Destroy(other.gameObject);
+
+            SpawnCupVisual(type, pos3.position);
+            
+            AddTopping(type);
+        }
     }
 
     private void SpawnCupVisual(ToppingTypes type, Vector3 position)
