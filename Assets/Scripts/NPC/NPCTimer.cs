@@ -1,12 +1,13 @@
 using UnityEngine;
 using  UnityEngine.UI;
 
-public class DayTimer : MonoBehaviour
+public class NPCTimer : MonoBehaviour
 {
     [SerializeField] private Image timerImage;
-    [SerializeField] public GameObject endDayUI;
     
-    [SerializeField] private float startTime = 5f;
+    [SerializeField] private float startTime = 15f;
+    
+    private NPClogic npclogic;
     
     private float currentTime;
     private bool isTimerRunning = false;
@@ -38,21 +39,14 @@ public class DayTimer : MonoBehaviour
         isTimerRunning = true;
     }
 
-    public void ResetTimer()
-    {
-        currentTime = startTime;
-        timerImage.fillAmount = 1f;
-        isTimerRunning = true;
-    }
 
     public void TimerFinished()
     {
         isTimerRunning = false;
         currentTime = 0;
         timerImage.fillAmount = 0f;
-
-        Time.timeScale = 0f;
-        endDayUI.SetActive(true);
+        
+        npclogic.Kill();
+        
     }
 }
-

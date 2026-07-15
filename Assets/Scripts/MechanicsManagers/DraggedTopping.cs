@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DraggedTopping : MonoBehaviour
 {
-    private bool isDragging;
+    public bool isDragging;
     private bool placedSuccessfully;
     
     public int toppingPrice;
@@ -34,6 +34,20 @@ public class DraggedTopping : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+    
+    private void OnMouseDown()
+    {
+        isDragging = true;
+
+        CupPlacer placer = GetComponentInParent<CupPlacer>();
+
+        if (placer != null)
+        {
+            placer.RemoveCup();
+        }
+
+        transform.SetParent(null);
     }
 
     public void SetPlaced()

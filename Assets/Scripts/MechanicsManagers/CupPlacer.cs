@@ -2,61 +2,67 @@ using UnityEngine;
 
 public class CupPlacer : MonoBehaviour
 {
-    [SerializeField] private GameObject cupPrefab;
-    [SerializeField] private Transform cupPos;
+    [SerializeField] private Transform snapPoint;
+    [SerializeField] private float snapDistance = 0.5f;
 
     private bool slotFull;
     private GameObject currentCup;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void Update()
     {
-        if (!other.CompareTag("Cup"))
-            return;
+        if (slotFull && currentCup == null)
+        {
+            slotFull = false;
+            Debug.Log("Cup slot is empty.");
+        }
 
         if (slotFull)
+            return;
+
+        GameObject[] cups = GameObject.FindGameObjectsWithTag("Cup");
+
+        foreach (GameObject cup in cups)
         {
-            Debug.Log("Slot Full");
-            return;
+            DraggedTopping draggedCup = cup.GetComponent<DraggedTopping>();
+
+            if (draggedCup == null || !draggedCup.isDragging)
+                continue;
+
+            float distance = Vector2.Distance(cup.transform.position, snapPoint.position);
+
+            if (distance <= snapDistance)
+            {
+                SnapCup(cup, draggedCup);
+                break;
+            }
         }
+    }
 
-        DraggedTopping topping = other.GetComponent<DraggedTopping>();
-        if (topping == null)
-            return;
+    private void SnapCup(GameObject cup, DraggedTopping draggedCup)
+    {
+        cup.transform.position = snapPoint.position;
+        cup.transform.rotation = Quaternion.identity;
 
-        ToppingTypes type = topping.toppingType;
+        cup.transform.SetParent(transform);
 
-        Destroy(other.gameObject);
+        draggedCup.isDragging = false;
 
-        SpawnCupVisual(type, cupPos.position);
-
+        currentCup = cup;
         slotFull = true;
+
+        Debug.Log("Cup Snapped!");
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void RemoveCup()
     {
-        if (other.gameObject == currentCup)
+        if (currentCup != null)
         {
-            Debug.Log("Placed cup removed");
-
-            slotFull = false;
-            currentCup = null;
+            currentCup.transform.SetParent(null);
         }
-    }
 
-    private void SpawnCupVisual(ToppingTypes type, Vector3 position)
-    {
-        GameObject prefab = GetCupPrefab(type);
-        if (prefab == null) return;
+        currentCup = null;
+        slotFull = false;
 
-        currentCup = Instantiate(prefab, position, Quaternion.identity, transform);
-    }
-
-    private GameObject GetCupPrefab(ToppingTypes type)
-    {
-        return type switch
-        {
-            ToppingTypes.Cup => cupPrefab,
-            _ => null
-        };
+        Debug.Log("Cup Removed!");
     }
 }

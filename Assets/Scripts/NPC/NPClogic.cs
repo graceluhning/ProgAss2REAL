@@ -20,6 +20,11 @@ public class NPClogic : MonoBehaviour
         Kill();
     }
 
+    private void Timer()
+    {
+        
+    }
+
     public void Kill()
     {
         Destroy(gameObject);

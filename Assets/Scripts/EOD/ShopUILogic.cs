@@ -50,13 +50,15 @@ public class ShopUILogic : MonoBehaviour
     public bool sprinklesBought;
     [SerializeField] private GameObject sprinklesSpawner;
     
-    public DayCounter dayCounter;
+    [SerializeField] public DayCounter dayCounter;
+    [SerializeField] public RentCycle rentCycle;
     
     
     public void NextDay() // when next day pressed, reset timer and begin next day
     {
         nextDayUI.SetActive(false);
         Time.timeScale = 1f;
+        rentCycle.PayRent();
 
         timer.ResetTimer();
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DayCounter : MonoBehaviour
 {
-   public int dayCount;
+   [SerializeField] public  int dayCount;
 
    void Start()
    {
