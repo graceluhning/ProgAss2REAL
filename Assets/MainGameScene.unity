@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayCount: 0
-  rentCycle: {fileID: 746232981}
 --- !u!4 &39694488
 Transform:
   m_ObjectHideFlags: 0
@@ -3387,6 +3386,7 @@ MonoBehaviour:
   sprinklesBought: 0
   sprinklesSpawner: {fileID: 526525669}
   dayCounter: {fileID: 39694487}
+  rentCycle: {fileID: 0}
 --- !u!1 &1049515704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,7 +3887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerImage: {fileID: 954502030}
   endDayUI: {fileID: 957990086}
-  startTime: 5
+  startTime: 60
 --- !u!1 &1376934369
 GameObject:
   m_ObjectHideFlags: 0
