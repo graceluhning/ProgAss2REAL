@@ -2875,6 +2875,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836490507}
   m_CullTransparentMesh: 1
+--- !u!1 &841101359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841101360}
+  - component: {fileID: 841101361}
+  m_Layer: 0
+  m_Name: GameManagegr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841101360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841101359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1049515705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841101361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841101359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d163f6ba22f49347a39ba3ee26c4dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!1 &905723184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,7 +3431,9 @@ MonoBehaviour:
   sprinklesBought: 0
   sprinklesSpawner: {fileID: 526525669}
   dayCounter: {fileID: 39694487}
-  rentCycle: {fileID: 0}
+  rentCycle: {fileID: 746232981}
+  moneyManager: {fileID: 1382862623}
+  gameManager: {fileID: 0}
 --- !u!1 &1049515704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,6 +3469,7 @@ Transform:
   - {fileID: 1363723264}
   - {fileID: 39694488}
   - {fileID: 746232982}
+  - {fileID: 841101360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1059065961
@@ -3887,7 +3935,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerImage: {fileID: 954502030}
   endDayUI: {fileID: 957990086}
-  startTime: 60
+  gameManager: {fileID: 0}
+  startTime: 3
 --- !u!1 &1376934369
 GameObject:
   m_ObjectHideFlags: 0

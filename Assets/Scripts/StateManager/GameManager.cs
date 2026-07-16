@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Day Started");
 
-        // Enable customers
-        // Enable player controls
     }
 
 
@@ -68,8 +66,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Shopping Phase");
 
-        // Open ShopUI
-        // Disable customers
     }
 
 
@@ -77,8 +73,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Day Complete");
 
-        // Show money earned
-        // Move to shop
     }
 
 
@@ -86,16 +80,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
 
-        // Show game over screen
-        // Stop spawning customers
     }
 
 
     private void WinGame()
     {
         Debug.Log("You Won!");
-
-        // Show victory screen
-        // Stop game
     }
 }

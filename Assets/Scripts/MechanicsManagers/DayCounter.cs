@@ -13,5 +13,10 @@ public class DayCounter : MonoBehaviour
    {
       dayCount++;
       Debug.Log("Next day initiated");
+      
+      if (dayCount == 8)
+      {
+         GameManager.Instance.ChangeState(GameState.GameWon);
+      }
    }
 }

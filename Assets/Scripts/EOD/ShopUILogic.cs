@@ -52,19 +52,31 @@ public class ShopUILogic : MonoBehaviour
     
     [SerializeField] public DayCounter dayCounter;
     [SerializeField] public RentCycle rentCycle;
+    [SerializeField] public MoneyManager moneyManager;
     
-    
-    public void NextDay() // when next day pressed, reset timer and begin next day
+    [SerializeField] public GameManager gameManager;
+
+    public void NextDay()
     {
         nextDayUI.SetActive(false);
+
         Time.timeScale = 1f;
+
         rentCycle.PayRent();
+
+        if (moneyManager.Money < 0)
+        {
+            GameManager.Instance.ChangeState(GameState.GameOver);
+            return;
+        }
 
         timer.ResetTimer();
 
         dayCounter.NextDay();
-        Debug.Log(dayCounter.dayCount);
-        
+
+        Debug.Log("Day: " + dayCounter.dayCount);
+
+        GameManager.Instance.ChangeState(GameState.Playing);
     }
 
     public void BuyChocolate()
