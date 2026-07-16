@@ -45,10 +45,6 @@ public class GameManager : MonoBehaviour
                 OpenShop();
                 break;
 
-            case GameState.DayComplete:
-                EndDay();
-                break;
-
             case GameState.GameOver:
                 LoseGame();
                 break;
@@ -77,18 +73,11 @@ public class GameManager : MonoBehaviour
 
         if (moneyManager.Money <= 0)
         {
-            GameManager.Instance.ChangeState(GameState.GameOver);
+            Instance.ChangeState(GameState.GameOver);
             return;
         }
 
     }
-
-
-    private void EndDay()
-    {
-        Debug.Log("Day Complete");
-    }
-
 
     private void LoseGame()
     {
