@@ -61,15 +61,7 @@ public class ShopUILogic : MonoBehaviour
         nextDayUI.SetActive(false);
 
         Time.timeScale = 1f;
-
-        rentCycle.PayRent();
-
-        if (moneyManager.Money < 0)
-        {
-            GameManager.Instance.ChangeState(GameState.GameOver);
-            return;
-        }
-
+        
         timer.ResetTimer();
 
         dayCounter.NextDay();
@@ -83,9 +75,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (chocolateBought) return;
 
-        if (_moneyManager.Money >= 10)
+        if (_moneyManager.Money >= 20)
         {
-            _moneyManager.RemoveMoney(10);
+            _moneyManager.RemoveMoney(20);
             chocolateBought = true;
             
             if (chocolateBought)
@@ -111,9 +103,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (strawBought) return;
 
-        if (_moneyManager.Money >= 20)
+        if (_moneyManager.Money >= 40)
         {
-            _moneyManager.RemoveMoney(20);
+            _moneyManager.RemoveMoney(40);
             strawBought = true;
             
             if (strawBought)
@@ -138,9 +130,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (mintBought) return;
 
-        if (_moneyManager.Money >= 30)
+        if (_moneyManager.Money >= 60)
         {
-            _moneyManager.RemoveMoney(30);
+            _moneyManager.RemoveMoney(60);
             mintBought = true;
             
             if (mintBought)
@@ -166,9 +158,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (mangoBought) return;
 
-        if (_moneyManager.Money >= 40)
+        if (_moneyManager.Money >= 80)
         {
-            _moneyManager.RemoveMoney(40);
+            _moneyManager.RemoveMoney(80);
             mangoBought = true;
             
             if (mangoBought)
@@ -194,9 +186,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (cookiesCreamBought) return;
 
-        if (_moneyManager.Money >= 50)
+        if (_moneyManager.Money >= 100)
         {
-            _moneyManager.RemoveMoney(50);
+            _moneyManager.RemoveMoney(100);
             cookiesCreamBought = true;
             
             if (cookiesCreamBought)
@@ -222,9 +214,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (cherryBought) return;
 
-        if (_moneyManager.Money >= 50)
+        if (_moneyManager.Money >= 120)
         {
-            _moneyManager.RemoveMoney(50);
+            _moneyManager.RemoveMoney(120);
             cherryBought = true;
             
             if (cherryBought)
@@ -250,9 +242,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (whippedCreamBought) return;
 
-        if (_moneyManager.Money >= 50)
+        if (_moneyManager.Money >= 140)
         {
-            _moneyManager.RemoveMoney(50);
+            _moneyManager.RemoveMoney(140);
             whippedCreamBought = true;
             
             if (whippedCreamBought)
@@ -278,9 +270,9 @@ public class ShopUILogic : MonoBehaviour
     {
         if (sprinklesBought) return;
 
-        if (_moneyManager.Money >= 50)
+        if (_moneyManager.Money >= 160)
         {
-            _moneyManager.RemoveMoney(50);
+            _moneyManager.RemoveMoney(160);
             sprinklesBought = true;
             
             if (sprinklesBought)

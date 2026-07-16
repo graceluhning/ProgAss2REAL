@@ -4,7 +4,6 @@ using  UnityEngine.UI;
 public class DayTimer : MonoBehaviour
 {
     [SerializeField] private Image timerImage;
-    [SerializeField] public GameObject endDayUI;
     
     [SerializeField] public GameManager gameManager;
     
@@ -55,9 +54,7 @@ public class DayTimer : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        endDayUI.SetActive(true);
-
-        GameManager.Instance.ChangeState(GameState.DayComplete);
+        GameManager.Instance.ChangeState(GameState.Shopping);
     }
 }
 

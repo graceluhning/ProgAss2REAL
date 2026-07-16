@@ -2886,7 +2886,7 @@ GameObject:
   - component: {fileID: 841101360}
   - component: {fileID: 841101361}
   m_Layer: 0
-  m_Name: GameManagegr
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2920,6 +2920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  rentCycle: {fileID: 746232981}
+  moneyManager: {fileID: 1382862623}
+  endDayUI: {fileID: 957990086}
 --- !u!1 &905723184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,7 +3937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerImage: {fileID: 954502030}
-  endDayUI: {fileID: 957990086}
   gameManager: {fileID: 0}
   startTime: 3
 --- !u!1 &1376934369

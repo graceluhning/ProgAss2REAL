@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public GameState currentState;
+    [SerializeField] public RentCycle rentCycle;
+    [SerializeField] public MoneyManager moneyManager;
+    [SerializeField] public GameObject endDayUI;
 
 
     private void Awake()
@@ -12,6 +16,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -59,12 +64,22 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Day Started");
 
+        Time.timeScale = 1f;
     }
 
 
     private void OpenShop()
     {
         Debug.Log("Shopping Phase");
+        
+        endDayUI.SetActive(true);
+        rentCycle.PayRent();
+
+        if (moneyManager.Money <= 0)
+        {
+            GameManager.Instance.ChangeState(GameState.GameOver);
+            return;
+        }
 
     }
 
@@ -72,7 +87,6 @@ public class GameManager : MonoBehaviour
     private void EndDay()
     {
         Debug.Log("Day Complete");
-
     }
 
 
@@ -80,11 +94,18 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
 
+        Time.timeScale = 0f;
+
+        SceneManager.LoadScene("GameLostScene");
     }
 
 
     private void WinGame()
     {
         Debug.Log("You Won!");
+
+        Time.timeScale = 0f;
+
+        SceneManager.LoadScene("GameWonScene");
     }
 }

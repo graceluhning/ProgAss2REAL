@@ -7,10 +7,10 @@ public static class ToppingPrices
         switch (topping)
         {
             case ToppingTypes.Vanilla:
-                return 2;
+                return 1;
 
             case ToppingTypes.Chocolate:
-                return 3;
+                return 2;
 
             case ToppingTypes.Strawberry:
                 return 3;
@@ -22,16 +22,16 @@ public static class ToppingPrices
                 return 5;
             
             case ToppingTypes.CookiesCream:
-                return 5;
+                return 6;
 
             case ToppingTypes.Cherry:
-                return 3;
+                return 5;
 
             case ToppingTypes.Sprinkles:
-                return 4;
+                return 6;
             
             case ToppingTypes.WhippedCream:
-                return 5;
+                return 7;
 
             default:
                 return 0;
