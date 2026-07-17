@@ -6,6 +6,9 @@ public static class ToppingPrices
     {
         switch (topping)
         {
+            case ToppingTypes.Cup:
+                return 0;
+            
             case ToppingTypes.Vanilla:
                 return 1;
 

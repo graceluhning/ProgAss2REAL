@@ -5,6 +5,8 @@ public class NPClogic : MonoBehaviour
     public SpawnPoints spawnPoint;
     public IceCreamOrderGenerator orderGenerator;
 
+    [SerializeField] public NPCTimer npcTimer;
+
     private void Start()
     {
         if (orderGenerator == null)
@@ -25,18 +27,29 @@ public class NPClogic : MonoBehaviour
         );
 
         if (correctOrder)
-        {
-            MoneyManager.Instance.AddMoney(cup.totalPrice);
+            if (correctOrder)
+            {
+                if (npcTimer != null && npcTimer.currentTime >= 10f)
+                {
+                    MoneyManager.Instance.AddMoney(cup.totalPrice + 2);
 
-            Debug.Log("Customer paid $" + cup.totalPrice);
+                    Debug.Log("Customer tipped $2 for fast service!");
+                    Debug.Log("Customer paid $" + cup.totalPrice);
+                }
+                else
+                {
+                    MoneyManager.Instance.AddMoney(cup.totalPrice);
 
-            Destroy(other.gameObject);
-            Kill();
-        }
-        else
-        {
-            Debug.Log("Wrong order! Customer rejected it.");
-        }
+                    Debug.Log("Customer paid $" + cup.totalPrice);
+                }
+
+                Destroy(other.gameObject);
+                Kill();
+            }
+            else
+            {
+                Debug.Log("Wrong order! Customer rejected it.");
+            }
     }
 
     public void Kill()

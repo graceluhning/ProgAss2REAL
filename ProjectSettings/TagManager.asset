@@ -11,13 +11,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Placers
+  - 
   - Water
   - UI
   - Cups
   - IceCream
   - Toppings
-  - 
+  - Placers
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Topping
     uniqueID: 869089173
+    locked: 0
+  - name: Table
+    uniqueID: 3821392263
     locked: 0
   m_RenderingLayers:
   - Default

@@ -9,6 +9,7 @@ public class ParfaitCup : MonoBehaviour
     [SerializeField] private GameObject mintCupPrefab;
     [SerializeField] private GameObject mangoCupPrefab;
     [SerializeField] private GameObject cookiesCreamCupPrefab;
+
     [SerializeField] private GameObject cherryPlacedPrefab;
     [SerializeField] private GameObject whippedCreamPlacedPrefab;
     [SerializeField] private GameObject sprinklesPlacedPrefab;
@@ -25,28 +26,62 @@ public class ParfaitCup : MonoBehaviour
     public ToppingTypes slot2Type;
     public ToppingTypes slot3Type;
 
-    public int totalPrice = 2;
+    public int totalPrice = 0;
 
-    public void AddTopping(ToppingTypes type)
+    private DraggedTopping hoveringTopping;
+
+
+    private void Update()
     {
-        totalPrice += ToppingPrices.GetPrice(type);
-        Debug.Log("Current Price: $" + totalPrice);
+        if (hoveringTopping == null)
+            return;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            PlaceTopping(hoveringTopping);
+            hoveringTopping = null;
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("IceCream"))
+        if (other.CompareTag("IceCream") || other.CompareTag("RealTopping"))
         {
             DraggedTopping topping = other.GetComponent<DraggedTopping>();
-            if (topping == null) return;
 
+            if (topping != null)
+            {
+                hoveringTopping = topping;
+            }
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        DraggedTopping topping = other.GetComponent<DraggedTopping>();
+
+        if (topping != null && topping == hoveringTopping)
+        {
+            hoveringTopping = null;
+        }
+    }
+
+
+    private void PlaceTopping(DraggedTopping topping)
+    {
+        ToppingTypes type = topping.toppingType;
+
+
+        // ICE CREAM SCOOPS
+        if (topping.CompareTag("IceCream"))
+        {
             if (slot1 && slot2)
             {
                 Debug.Log("Cup Full");
                 return;
             }
-
-            ToppingTypes type = topping.toppingType;
 
             Transform targetSlot = null;
 
@@ -54,32 +89,32 @@ public class ParfaitCup : MonoBehaviour
             {
                 targetSlot = pos1;
                 slot1 = true;
-
                 slot1Type = type;
             }
             else if (!slot2)
             {
                 targetSlot = pos2;
                 slot2 = true;
-                
                 slot2Type = type;
             }
 
-            Destroy(other.gameObject);
+
+            topping.SetPlaced();
+
+            Destroy(topping.gameObject);
 
             SpawnCupVisual(type, targetSlot.position);
 
             AddTopping(type);
         }
 
-        else if (other.CompareTag("RealTopping"))
-        {
-            DraggedTopping topping = other.GetComponent<DraggedTopping>();
-            if (topping == null) return;
 
+        // TOPPINGS
+        else if (topping.CompareTag("RealTopping"))
+        {
             if (!slot1 || !slot2)
             {
-                Debug.Log("Can't place topping without ice cream!");
+                Debug.Log("Need ice cream first!");
                 return;
             }
 
@@ -89,13 +124,14 @@ public class ParfaitCup : MonoBehaviour
                 return;
             }
 
-            ToppingTypes type = topping.toppingType;
 
             slot3 = true;
-            
             slot3Type = type;
 
-            Destroy(other.gameObject);
+
+            topping.SetPlaced();
+
+            Destroy(topping.gameObject);
 
             SpawnCupVisual(type, pos3.position);
 
@@ -103,12 +139,24 @@ public class ParfaitCup : MonoBehaviour
         }
     }
 
+
+    public void AddTopping(ToppingTypes type)
+    {
+        totalPrice += ToppingPrices.GetPrice(type);
+        Debug.Log("Current Price: $" + totalPrice);
+    }
+
+
     private void SpawnCupVisual(ToppingTypes type, Vector3 position)
     {
         GameObject prefab = GetCupPrefab(type);
 
-        Instantiate(prefab, position, Quaternion.identity, transform);
+        if (prefab != null)
+        {
+            Instantiate(prefab, position, Quaternion.identity, transform);
+        }
     }
+
 
     private GameObject GetCupPrefab(ToppingTypes type)
     {
@@ -120,10 +168,13 @@ public class ParfaitCup : MonoBehaviour
             ToppingTypes.Mint => mintCupPrefab,
             ToppingTypes.Mango => mangoCupPrefab,
             ToppingTypes.CookiesCream => cookiesCreamCupPrefab,
+
             ToppingTypes.Cup => cupPrefab,
+
             ToppingTypes.Cherry => cherryPlacedPrefab,
             ToppingTypes.WhippedCream => whippedCreamPlacedPrefab,
             ToppingTypes.Sprinkles => sprinklesPlacedPrefab,
+
             _ => null
         };
     }

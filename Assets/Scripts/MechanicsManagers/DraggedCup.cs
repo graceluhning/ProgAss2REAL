@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DraggedCup : MonoBehaviour
 {
-    private bool isDragging;
+    public bool isDragging;
     private bool placedSuccessfully;
     
     public void BeginDrag()
@@ -16,6 +16,7 @@ public class DraggedCup : MonoBehaviour
         mousePos.z = 10f;
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        Debug.Log("Clicked cup!");
         BeginDrag(); 
     }
 
@@ -41,6 +42,8 @@ public class DraggedCup : MonoBehaviour
             }
         }
     }
+    
+    
 
     public void SetPlaced()
     {

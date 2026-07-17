@@ -50,11 +50,18 @@ public class ShopUILogic : MonoBehaviour
     public bool sprinklesBought;
     [SerializeField] private GameObject sprinklesSpawner;
     
-    [SerializeField] public DayCounter dayCounter;
-    [SerializeField] public RentCycle rentCycle;
-    [SerializeField] public MoneyManager moneyManager;
+    [SerializeField] private Button cupOneButton;
+    [SerializeField] TMP_Text cupOneText;
+    public bool cupOneBought;
+    [SerializeField] private GameObject cupOneSpawner;
     
-    [SerializeField] public GameManager gameManager;
+    [SerializeField] private Button cupTwoButton;
+    [SerializeField] TMP_Text cupTwoText;
+    public bool cupTwoBought;
+    [SerializeField] private GameObject cupTwoSpawner;
+    
+    [SerializeField] public DayCounter dayCounter;
+  
 
     public void NextDay()
     {
@@ -293,6 +300,64 @@ public class ShopUILogic : MonoBehaviour
         }
 
     }
+    
+    public void BuyCupOne()
+    {
+        if (cupOneBought) return;
+
+        if (_moneyManager.Money >= 100)
+        {
+            _moneyManager.RemoveMoney(100);
+            cupOneBought = true;
+            
+            if (cupOneBought)
+            {
+                cupTwoSpawner.SetActive(true);
+            }
+
+            cupOneText.text = "BOUGHT";
+            cupOneButton.interactable = false;
+
+
+            Debug.Log("Bought Additional Cup Slot 1!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+    
+        
+    public void BuyCupTwo()
+    {
+        if (cupTwoBought) return;
+
+        if (_moneyManager.Money >= 200)
+        {
+            _moneyManager.RemoveMoney(200);
+            cupTwoBought = true;
+            
+            if (cupTwoBought)
+            {
+                cupTwoSpawner.SetActive(true);
+            }
+
+            cupTwoText.text = "BOUGHT";
+            cupTwoButton.interactable = false;
+
+
+            Debug.Log("Bought Additional Cup Slot 2!");
+        }
+
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
+
+    }
+
 
 
 }
