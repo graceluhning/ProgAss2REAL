@@ -31,6 +31,7 @@ public class IceCreamOrderGenerator : MonoBehaviour
         List<ToppingTypes> toppingChoices = new List<ToppingTypes>();
         
         iceCreamChoices.Add(ToppingTypes.Vanilla);
+        toppingChoices.Add(ToppingTypes.Cherry);
 
         if (shopUI.chocolateBought)
             iceCreamChoices.Add(ToppingTypes.Chocolate);
@@ -46,9 +47,6 @@ public class IceCreamOrderGenerator : MonoBehaviour
 
         if (shopUI.cookiesCreamBought)
             iceCreamChoices.Add(ToppingTypes.CookiesCream);
-
-        if (shopUI.cherryBought)
-            toppingChoices.Add(ToppingTypes.Cherry);
 
         if (shopUI.whippedCreamBought)
             toppingChoices.Add(ToppingTypes.WhippedCream);

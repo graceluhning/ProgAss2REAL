@@ -28,13 +28,13 @@ public static class ToppingPrices
                 return 6;
 
             case ToppingTypes.Cherry:
-                return 5;
+                return 1;
 
             case ToppingTypes.Sprinkles:
-                return 6;
+                return 3;
             
             case ToppingTypes.WhippedCream:
-                return 7;
+                return 5;
 
             default:
                 return 0;

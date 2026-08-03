@@ -35,11 +35,6 @@ public class ShopUILogic : MonoBehaviour
     public bool cookiesCreamBought;
     [SerializeField] private GameObject cookiesCreamSpawner;
     
-    [SerializeField] private Button cherryButton;
-    [SerializeField] TMP_Text cherryText;
-    public bool cherryBought;
-    [SerializeField] private GameObject cherrySpawner;
-    
     [SerializeField] private Button whippedCreamButton;
     [SerializeField] TMP_Text whippedCreamText;
     public bool whippedCreamBought;
@@ -217,34 +212,6 @@ public class ShopUILogic : MonoBehaviour
 
     }
     
-    public void BuyCherry()
-    {
-        if (cherryBought) return;
-
-        if (_moneyManager.Money >= 120)
-        {
-            _moneyManager.RemoveMoney(120);
-            cherryBought = true;
-            
-            if (cherryBought)
-            {
-                cherrySpawner.SetActive(true);
-            }
-
-            cherryText.text = "BOUGHT";
-            cherryButton.interactable = false;
-
-
-            Debug.Log("Bought Cherry!");
-        }
-
-        else
-        {
-            Debug.Log("Not enough coins!");
-        }
-
-    }
-    
     public void BuyWhippedCream()
     {
         if (whippedCreamBought) return;
@@ -357,7 +324,7 @@ public class ShopUILogic : MonoBehaviour
         }
 
     }
-
+    
 
 
 }
