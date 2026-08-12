@@ -44,4 +44,5 @@ public class MoneyManager : MonoBehaviour
         if (moneyText != null)
             moneyText.text = "COINS: " + Money;
     }
+
 }
