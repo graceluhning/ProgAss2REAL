@@ -94,7 +94,7 @@ public void BuyChocolate()
 
         chocolateSpawner.SetActive(true);
 
-        chocolateText.text = "BOUGHT";
+        chocolateText.text = "";
         chocolateButton.interactable = false;
 
         receiptText.text += "CHOCOLATE\n";
@@ -122,7 +122,7 @@ public void BuyStrawberry()
 
         strawSpawner.SetActive(true);
 
-        strawText.text = "BOUGHT";
+        strawText.text = "";
         strawberryButton.interactable = false;
 
         receiptText.text += "STRAWBERRY\n";
@@ -150,7 +150,7 @@ public void BuyMint()
 
         mintSpawner.SetActive(true);
 
-        mintText.text = "BOUGHT";
+        mintText.text = "";
         mintButton.interactable = false;
 
         receiptText.text += "MINT\n";
@@ -178,7 +178,7 @@ public void BuyMango()
 
         mangoSpawner.SetActive(true);
 
-        mangoText.text = "BOUGHT";
+        mangoText.text = "";
         mangoButton.interactable = false;
 
         receiptText.text += "MANGO\n";
@@ -206,7 +206,7 @@ public void BuyCookiesCream()
 
         cookiesCreamSpawner.SetActive(true);
 
-        cookiesCreamText.text = "BOUGHT";
+        cookiesCreamText.text = "";
         cookiesCreamButton.interactable = false;
 
         receiptText.text += "COOKIES\n";
@@ -234,7 +234,7 @@ public void BuyWhippedCream()
 
         whippedCreamSpawner.SetActive(true);
 
-        whippedCreamText.text = "BOUGHT";
+        whippedCreamText.text = "";
         whippedCreamButton.interactable = false;
 
         receiptText.text += "CREAM\n";
@@ -262,7 +262,7 @@ public void BuySprinkles()
 
         sprinklesSpawner.SetActive(true);
 
-        sprinklesText.text = "BOUGHT";
+        sprinklesText.text = "";
         sprinklesButton.interactable = false;
 
         receiptText.text += "SPRINKLES\n";
@@ -290,7 +290,7 @@ public void BuyCupOne()
 
         cupTwoSpawner.SetActive(true);
 
-        cupOneText.text = "BOUGHT";
+        cupOneText.text = "";
         cupOneButton.interactable = false;
 
         receiptText.text += "CUP SLOT\n";
@@ -317,9 +317,9 @@ public void BuyCupTwo()
         cupTwoBought = true;
 
         cupTwoSpawner.SetActive(true);
-
-        cupTwoText.text = "BOUGHT";
-        cupTwoButton.interactable = false;
+        
+        cupTwoText.text = "";
+       cupTwoButton.interactable = false;
 
         receiptText.text += "CUP SLOT\n";
         priceText.text += "$200\n";
