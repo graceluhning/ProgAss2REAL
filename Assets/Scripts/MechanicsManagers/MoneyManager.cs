@@ -15,7 +15,7 @@ public class MoneyManager : MonoBehaviour
 
     private void Start()
     {
-        Money = 0;
+        Money = 50;
         UpdateMoneyUI();
     }
 

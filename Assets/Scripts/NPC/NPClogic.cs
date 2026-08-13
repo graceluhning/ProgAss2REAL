@@ -27,7 +27,6 @@ public class NPClogic : MonoBehaviour
         );
 
         if (correctOrder)
-            if (correctOrder)
             {
                 if (npcTimer != null && npcTimer.currentTime >= 10f)
                 {

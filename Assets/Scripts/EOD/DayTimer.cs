@@ -1,21 +1,21 @@
 using UnityEngine;
-using  UnityEngine.UI;
+using UnityEngine.UI;
 
 public class DayTimer : MonoBehaviour
 {
     [SerializeField] private Image timerImage;
-    
     [SerializeField] public GameManager gameManager;
-    
     [SerializeField] private float startTime = 5f;
-    
+
     private float currentTime;
     private bool isTimerRunning = false;
 
     void Start()
     {
         currentTime = startTime;
-        StartTimer();
+        timerImage.fillAmount = 1f;
+
+        Time.timeScale = 0f;
     }
 
     void Update()
@@ -33,10 +33,11 @@ public class DayTimer : MonoBehaviour
             TimerFinished();
         }
     }
-    
+
     public void StartTimer()
     {
         isTimerRunning = true;
+        Time.timeScale = 1f;
     }
 
     public void ResetTimer()
@@ -44,6 +45,7 @@ public class DayTimer : MonoBehaviour
         currentTime = startTime;
         timerImage.fillAmount = 1f;
         isTimerRunning = true;
+        Time.timeScale = 1f;
     }
 
     public void TimerFinished()
@@ -52,9 +54,15 @@ public class DayTimer : MonoBehaviour
         currentTime = 0;
         timerImage.fillAmount = 0f;
 
+        NPClogic[] npcs = FindObjectsOfType<NPClogic>();
+
+        foreach (NPClogic npc in npcs)
+        {
+            npc.Kill();
+        }
+
         Time.timeScale = 0f;
 
         GameManager.Instance.ChangeState(GameState.Shopping);
     }
 }
-

@@ -1,0 +1,103 @@
+{
+  "start": "intro",
+  "characters": [
+    {
+      "reference": "ken",
+      "name": "Ken",
+      "emotions": {
+        "happy": "ken/ken_happy",
+        "sad": "ken/ken_sus",
+        "shocked": "ken/ken_kiss",
+        "neutral": "ken/ken_neutral",
+        "angry": "ken/ken_mad"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "name": "intro",
+      "entry": 0,
+      "background": "",
+      "music": "",
+      "dialogue": [
+        {
+          "character_ref": "ken",
+          "emotion": "happy",
+          "text": "Hey, man! Glad you could make it!"
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "sad",
+          "text": "Not that you had a huge choice in the matter, but still."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "sad",
+          "text": "It's nice when people show up for things."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "angry",
+          "text": "Listen, you owe me - er, us, money. Like, A LOT of money."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "shocked",
+          "text": "Usually I'd just kill you. But I have a small problem."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "neutral",
+          "text": "This ice cream business we're using as a front - It's totally failing. Like, fucked."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "shocked",
+          "text": "That's where you come in!"
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "happy",
+          "text": "I need you to turn this place around. Like, now."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "sad",
+          "text": "I'll give you... let's say 7 days - to turn the place around."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "angry",
+          "text": "Or else."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "sad",
+          "text": "You'll be in charge of paying the daily rent, buying supplies, and keeping customers happy."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "angry",
+          "text": "And don't even think about putting yourself in more debt by being unable to pay rent,"
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "angry",
+          "text": "'Cause the place will go down. And you'll really be fucked."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "happy",
+          "text": "Don't disappoint me, kay?"
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "shocked",
+          "text": "Good Luck! And don't fuck it up!",
+          "fade_out": true
+        }
+      ],
+      "end_scene": "MainGameScene"
+    }
+  ]
+}

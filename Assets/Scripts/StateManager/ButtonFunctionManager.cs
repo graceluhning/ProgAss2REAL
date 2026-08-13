@@ -5,11 +5,12 @@ public class ButtonFunctionManager : MonoBehaviour
 {
     public GameObject Shop1;
     public GameObject Shop2;
-    
+    public GameObject tutorialPanel;
+    [SerializeField] private DayTimer dayTimer;
     
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("OpeningScene");
     }
 
     public void QuitGame()
@@ -26,5 +27,12 @@ public class ButtonFunctionManager : MonoBehaviour
     {
         Shop1.SetActive(true);
         Shop2.SetActive(false);
+    }
+
+    public void CloseTutorial()
+    {
+        tutorialPanel.SetActive(false);
+
+        dayTimer.StartTimer();
     }
 }
