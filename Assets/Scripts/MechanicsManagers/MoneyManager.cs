@@ -15,7 +15,7 @@ public class MoneyManager : MonoBehaviour
 
     private void Start()
     {
-        Money = 0;
+        Money = 500;
         UpdateMoneyUI();
     }
 
@@ -42,7 +42,7 @@ public class MoneyManager : MonoBehaviour
     private void UpdateMoneyUI()
     {
         if (moneyText != null)
-            moneyText.text = "COINS: " + Money;
+            moneyText.text = "MONEY: " + Money;
     }
 
 }

@@ -1,22 +1,28 @@
 using UnityEngine;
+using TMPro;
 
 public class DayCounter : MonoBehaviour
 {
-   [SerializeField] public  int dayCount;
+    [SerializeField] public int dayCount;
+    [SerializeField] public TMP_Text recieptDay;
 
-   void Start()
-   {
-      dayCount = 1;
-   }
+    void Start()
+    {
+        dayCount = 1;
+        recieptDay.text = "DAY " + dayCount;
+    }
 
-   public void NextDay()
-   {
-      dayCount++;
-      Debug.Log("Next day initiated");
-      
-      if (dayCount == 8)
-      {
-         GameManager.Instance.ChangeState(GameState.GameWon);
-      }
-   }
+    public void NextDay()
+    {
+        dayCount++;
+
+        Debug.Log("Next day initiated");
+
+        recieptDay.text = "DAY " + dayCount;
+
+        if (dayCount == 8)
+        {
+            GameManager.Instance.ChangeState(GameState.GameWon);
+        }
+    }
 }
