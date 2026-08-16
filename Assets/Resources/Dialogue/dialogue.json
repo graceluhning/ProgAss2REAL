@@ -9,7 +9,8 @@
         "sad": "ken/ken_sus",
         "shocked": "ken/ken_kiss",
         "neutral": "ken/ken_neutral",
-        "angry": "ken/ken_mad"
+        "angry": "ken/ken_mad",
+        "cool": "ken/ken_closed"
       }
     }
   ],
@@ -32,7 +33,7 @@
         },
         {
           "character_ref": "ken",
-          "emotion": "sad",
+          "emotion": "cool",
           "text": "It's nice when people show up for things."
         },
         {
@@ -48,7 +49,7 @@
         {
           "character_ref": "ken",
           "emotion": "neutral",
-          "text": "This ice cream business we're using as a front - It's totally failing. Like, fucked."
+          "text": "This ice cream business we're using as a front - It's totally failing. Like, fucked. And the cops are onto me"
         },
         {
           "character_ref": "ken",
@@ -83,12 +84,17 @@
         {
           "character_ref": "ken",
           "emotion": "angry",
-          "text": "'Cause the place will go down. And you'll really be fucked."
+          "text": "'Cause the place will go down. And you'll really be in trouble."
         },
         {
           "character_ref": "ken",
-          "emotion": "happy",
-          "text": "Don't disappoint me, kay?"
+          "emotion": "angry",
+          "text": "'If you can keep the place afloat, I'll waive all your debt."
+        },
+        {
+          "character_ref": "ken",
+          "emotion": "cool",
+          "text": "So don't disappoint me, kay?"
         },
         {
           "character_ref": "ken",

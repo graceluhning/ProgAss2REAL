@@ -27,6 +27,7 @@ namespace _Project.Code.Gameplay.Dialogue
         public string shocked;
         public string neutral;
         public string angry;
+        public string cool;
 
         public Dictionary<string, string> AsDictionary()
         {
@@ -36,7 +37,8 @@ namespace _Project.Code.Gameplay.Dialogue
                 { "sad", sad },
                 { "neutral", neutral },
                 { "shocked", shocked },
-                { "angry", angry }
+                { "angry", angry },
+                { "cool", cool }
             };
         }
     }
