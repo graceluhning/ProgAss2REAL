@@ -13,7 +13,6 @@ public class CupPlacer : MonoBehaviour
         if (slotFull && currentCup == null)
         {
             slotFull = false;
-            Debug.Log("Cup slot is empty.");
         }
 
         if (slotFull)
@@ -49,8 +48,7 @@ public class CupPlacer : MonoBehaviour
 
         currentCup = cup;
         slotFull = true;
-
-        Debug.Log("Cup Snapped!");
+        
     }
 
     public void RemoveCup()
@@ -63,6 +61,6 @@ public class CupPlacer : MonoBehaviour
         currentCup = null;
         slotFull = false;
 
-        Debug.Log("Cup Removed!");
+        
     }
 }

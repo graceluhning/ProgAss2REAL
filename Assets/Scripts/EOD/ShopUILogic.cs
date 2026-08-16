@@ -67,22 +67,21 @@ public class ShopUILogic : MonoBehaviour
         nextDayUI.SetActive(false);
 
         Time.timeScale = 1f;
-        
+
         receiptText.text = "";
         priceText.text = "";
         totalText.text = "";
-        
-        totalCost = 0;
-
-        timer.ResetTimer();
 
         dayCounter.NextDay();
+
+        totalCost = (10 * dayCounter.dayCount);
+
+        timer.ResetTimer();
 
         Debug.Log("Day: " + dayCounter.dayCount);
 
         GameManager.Instance.ChangeState(GameState.Playing);
     }
-
 public void BuyChocolate()
 {
     if (chocolateBought) return;
@@ -227,9 +226,9 @@ public void BuyWhippedCream()
 {
     if (whippedCreamBought) return;
 
-    if (_moneyManager.Money >= 140)
+    if (_moneyManager.Money >= 120)
     {
-        _moneyManager.RemoveMoney(140);
+        _moneyManager.RemoveMoney(120);
         whippedCreamBought = true;
 
         whippedCreamSpawner.SetActive(true);
@@ -238,9 +237,9 @@ public void BuyWhippedCream()
         whippedCreamButton.interactable = false;
 
         receiptText.text += "CREAM\n";
-        priceText.text += "$140\n";
+        priceText.text += "$120\n";
 
-        totalCost += 140;
+        totalCost += 120;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Whipped Cream!");
@@ -255,9 +254,9 @@ public void BuySprinkles()
 {
     if (sprinklesBought) return;
 
-    if (_moneyManager.Money >= 160)
+    if (_moneyManager.Money >= 140)
     {
-        _moneyManager.RemoveMoney(160);
+        _moneyManager.RemoveMoney(140);
         sprinklesBought = true;
 
         sprinklesSpawner.SetActive(true);
@@ -268,7 +267,7 @@ public void BuySprinkles()
         receiptText.text += "SPRINKLES\n";
         priceText.text += "$160\n";
 
-        totalCost += 160;
+        totalCost += 140;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Sprinkles!");

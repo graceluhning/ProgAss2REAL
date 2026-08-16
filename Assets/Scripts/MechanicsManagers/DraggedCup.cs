@@ -4,20 +4,25 @@ public class DraggedCup : MonoBehaviour
 {
     public bool isDragging;
     private bool placedSuccessfully;
-    
+
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+    }
+
     public void BeginDrag()
     {
         isDragging = true;
+        rb.gravityScale = 0f;
     }
-    
+
     private void OnMouseDown()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f;
-
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         Debug.Log("Clicked cup!");
-        BeginDrag(); 
+        BeginDrag();
     }
 
     private void Update()
@@ -30,20 +35,19 @@ public class DraggedCup : MonoBehaviour
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        transform.position = new Vector3(worldPos.x, worldPos.y, transform.position.z);
+        transform.position = new Vector3(
+            worldPos.x,
+            worldPos.y,
+            transform.position.z
+        );
 
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-
-            if (!placedSuccessfully)
-            {
-                Destroy(gameObject);
-            }
+            
+            rb.gravityScale = 1f;
         }
     }
-    
-    
 
     public void SetPlaced()
     {

@@ -29,10 +29,7 @@ public class DraggedTopping : MonoBehaviour
         {
             isDragging = false;
 
-            if (!placedSuccessfully)
-            {
-                Destroy(gameObject);
-            }
+         
         }
     }
 

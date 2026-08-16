@@ -5,7 +5,7 @@ public class DayTimer : MonoBehaviour
 {
     [SerializeField] private Image timerImage;
     [SerializeField] public GameManager gameManager;
-    [SerializeField] private float startTime = 5f;
+    [SerializeField] private float startTime = 60f;
 
     private float currentTime;
     private bool isTimerRunning = false;

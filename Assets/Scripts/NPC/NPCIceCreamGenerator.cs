@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class IceCreamOrderGenerator : MonoBehaviour
 {
@@ -9,18 +8,28 @@ public class IceCreamOrderGenerator : MonoBehaviour
     public ToppingTypes orderedIceCream1;
     public ToppingTypes orderedIceCream2;
     public ToppingTypes orderedTopping;
-    [SerializeField] private TMP_Text orderText;
+
+    [System.Serializable]
+    public class OrderPrefab
+    {
+        public ToppingTypes type;
+        public GameObject prefab;
+    } 
+    [SerializeField] private List<OrderPrefab> orderPrefabs;
     
+    [SerializeField] private Transform iceCream1Position;
+    [SerializeField] private Transform iceCream2Position;
+    [SerializeField] private Transform toppingPosition;
+
+    private GameObject currentIceCream1;
+    private GameObject currentIceCream2;
+    private GameObject currentTopping;
+
 
     private void Awake()
     {
         shopUI = FindFirstObjectByType<ShopUILogic>(FindObjectsInactive.Include);
 
-        if (shopUI == null)
-        {
-            Debug.LogError("ShopUILogic not found on NextDayCanvas!");
-        }
-        
         GenerateOrder();
     }
 
@@ -29,7 +38,7 @@ public class IceCreamOrderGenerator : MonoBehaviour
     {
         List<ToppingTypes> iceCreamChoices = new List<ToppingTypes>();
         List<ToppingTypes> toppingChoices = new List<ToppingTypes>();
-        
+
         iceCreamChoices.Add(ToppingTypes.Vanilla);
         toppingChoices.Add(ToppingTypes.Cherry);
 
@@ -53,7 +62,8 @@ public class IceCreamOrderGenerator : MonoBehaviour
 
         if (shopUI.sprinklesBought)
             toppingChoices.Add(ToppingTypes.Sprinkles);
-        
+
+
         orderedIceCream1 = iceCreamChoices[
             Random.Range(0, iceCreamChoices.Count)
         ];
@@ -61,7 +71,8 @@ public class IceCreamOrderGenerator : MonoBehaviour
         orderedIceCream2 = iceCreamChoices[
             Random.Range(0, iceCreamChoices.Count)
         ];
-        
+
+
         if (toppingChoices.Count > 0)
         {
             orderedTopping = toppingChoices[
@@ -72,21 +83,62 @@ public class IceCreamOrderGenerator : MonoBehaviour
         {
             orderedTopping = ToppingTypes.Cup;
         }
-        
-        DisplayOrderText();
-        
+
+        DisplayOrderPrefabs();
     }
-    
-    private void DisplayOrderText()
+
+
+    private void DisplayOrderPrefabs()
     {
-        if (orderText != null)
-        {
-            orderText.text =
-                $"{orderedIceCream1} + {orderedIceCream2} with {orderedTopping}";
-        }
+        if (currentIceCream1 != null)
+            Destroy(currentIceCream1);
+
+        if (currentIceCream2 != null)
+            Destroy(currentIceCream2);
+
+        if (currentTopping != null)
+            Destroy(currentTopping);
+        
+        currentIceCream1 = SpawnPrefab(
+            orderedIceCream1,
+            iceCream1Position
+        );
+
+        currentIceCream2 = SpawnPrefab(
+            orderedIceCream2,
+            iceCream2Position
+        );
+
+        currentTopping = SpawnPrefab(
+            orderedTopping,
+            toppingPosition
+        );
     }
-    
-    public bool CheckOrder(ToppingTypes scoop1, ToppingTypes scoop2, ToppingTypes topping)
+
+
+    private GameObject SpawnPrefab(ToppingTypes type, Transform position)
+    {
+        foreach (OrderPrefab orderPrefab in orderPrefabs)
+        {
+            if (orderPrefab.type == type)
+            {
+                return Instantiate(
+                    orderPrefab.prefab,
+                    position.position,
+                    Quaternion.identity,
+                    position
+                );
+            }
+        }
+        
+        return null;
+    }
+
+
+    public bool CheckOrder(
+        ToppingTypes scoop1,
+        ToppingTypes scoop2,
+        ToppingTypes topping)
     {
         bool correctScoops =
             (scoop1 == orderedIceCream1 && scoop2 == orderedIceCream2) ||
