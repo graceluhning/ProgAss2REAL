@@ -1,22 +1,21 @@
 using UnityEngine;
 using TMPro;
+
 public class RentCycle : MonoBehaviour
-   {
-       public DayCounter dayCounter;
-       public MoneyManager moneyManager;
+{
+    public DayCounter dayCounter;
+    public MoneyManager moneyManager;
 
-       [SerializeField] public TMP_Text rentText; 
+    [SerializeField] public TMP_Text rentText;
 
-       public void PayRent()
-       {
-           int rentAmount = dayCounter.dayCount * 10;
-           
-           rentText.text = "$" + rentAmount.ToString();
+    public void PayRent()
+    {
+        int rentAmount = dayCounter.dayCount * 5;
 
-           moneyManager.RemoveMoney(rentAmount);
+        rentText.text = "$" + rentAmount.ToString();
 
-           Debug.Log("Rent paid: " + rentAmount);
-       }
-       
+        moneyManager.RemoveMoney(rentAmount);
+
+        Debug.Log("Rent paid: " + rentAmount);
     }
-
+}

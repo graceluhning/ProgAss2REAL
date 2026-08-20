@@ -4,6 +4,7 @@ public class NPClogic : MonoBehaviour
 {
     public SpawnPoints spawnPoint;
     public IceCreamOrderGenerator orderGenerator;
+    public AudioClip dollarSound;
 
     [SerializeField] public NPCTimer npcTimer;
 
@@ -11,7 +12,7 @@ public class NPClogic : MonoBehaviour
     {
         if (orderGenerator == null)
             orderGenerator = GetComponent<IceCreamOrderGenerator>();
-    }
+    }   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,32 +28,34 @@ public class NPClogic : MonoBehaviour
         );
 
         if (correctOrder)
+        {
+            int moneyGained = cup.totalPrice;
+
+            if (npcTimer != null && npcTimer.currentTime >= 10f)
             {
-                if (npcTimer != null && npcTimer.currentTime >= 10f)
-                {
-                    MoneyManager.Instance.AddMoney(cup.totalPrice + 2);
-
-                    Debug.Log("Customer tipped $2 for fast service!");
-                    Debug.Log("Customer paid $" + cup.totalPrice);
-                }
-                else
-                {
-                    MoneyManager.Instance.AddMoney(cup.totalPrice);
-
-                    Debug.Log("Customer paid $" + cup.totalPrice);
-                }
-
-                Destroy(other.gameObject);
-                Kill();
+                moneyGained += 2;
+                Debug.Log("Customer tipped $2 for fast service!");
             }
-            else
-            {
-                Debug.Log("Wrong order! Customer rejected it.");
-            }
+            
+            AudioSource.PlayClipAtPoint(dollarSound, transform.position);
+            MoneyManager.Instance.AddMoney(moneyGained);
+            
+
+            Debug.Log("Customer paid $" + moneyGained);
+
+            Destroy(other.gameObject);
+            Kill();
+        }
+        
+        else
+        {
+            Debug.Log("Wrong order! Customer rejected it.");
+        }
     }
 
     public void Kill()
     {
+        
         Destroy(gameObject);
     }
 

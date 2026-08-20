@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace _Project.Code.Gameplay.Dialogue
-// The dialogue script from class
+
 {
     [System.Serializable]
     public class DialogueData

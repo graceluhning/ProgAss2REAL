@@ -20,7 +20,7 @@ public class DayCounter : MonoBehaviour
 
         recieptDay.text = "DAY " + dayCount;
 
-        if (dayCount == 8)
+        if (dayCount == 6)
         {
             GameManager.Instance.ChangeState(GameState.GameWon);
         }

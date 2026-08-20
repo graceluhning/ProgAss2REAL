@@ -1,39 +1,46 @@
 using UnityEngine;
 
+
 public class DraggedCup : MonoBehaviour
 {
     public bool isDragging;
-    private bool placedSuccessfully;
+
 
     private Rigidbody2D rb;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
+        rb.gravityScale = 1f;
     }
+
 
     public void BeginDrag()
     {
         isDragging = true;
-        rb.gravityScale = 0f;
+        rb.gravityScale = 1f;
     }
+
 
     private void OnMouseDown()
     {
-        Debug.Log("Clicked cup!");
         BeginDrag();
     }
+
 
     private void Update()
     {
         if (!isDragging)
             return;
 
+
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10f;
 
+
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
 
         transform.position = new Vector3(
             worldPos.x,
@@ -41,16 +48,28 @@ public class DraggedCup : MonoBehaviour
             transform.position.z
         );
 
+
+        // Mouse released
         if (Input.GetMouseButtonUp(0))
         {
-            isDragging = false;
-            
-            rb.gravityScale = 1f;
+            Drop();
         }
     }
 
+
+    private void Drop()
+    {
+        isDragging = false;
+        rb.gravityScale = 1f;
+
+
+        Debug.Log("CUP DROPPED");
+    }
+
+
     public void SetPlaced()
     {
-        placedSuccessfully = true;
+        isDragging = false;
+        rb.gravityScale = 0f;
     }
 }

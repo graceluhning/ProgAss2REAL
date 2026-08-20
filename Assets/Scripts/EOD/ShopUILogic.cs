@@ -86,9 +86,9 @@ public void BuyChocolate()
 {
     if (chocolateBought) return;
 
-    if (_moneyManager.Money >= 20)
+    if (_moneyManager.Money >= 10)
     {
-        _moneyManager.RemoveMoney(20);
+        _moneyManager.RemoveMoney(10);
         chocolateBought = true;
 
         chocolateSpawner.SetActive(true);
@@ -97,9 +97,9 @@ public void BuyChocolate()
         chocolateButton.interactable = false;
 
         receiptText.text += "CHOCOLATE\n";
-        priceText.text += "$20\n";
+        priceText.text += "10\n";
 
-        totalCost += 20;
+        totalCost += 10;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Chocolate!");
@@ -114,9 +114,9 @@ public void BuyStrawberry()
 {
     if (strawBought) return;
 
-    if (_moneyManager.Money >= 40)
+    if (_moneyManager.Money >= 20)
     {
-        _moneyManager.RemoveMoney(40);
+        _moneyManager.RemoveMoney(20);
         strawBought = true;
 
         strawSpawner.SetActive(true);
@@ -125,9 +125,9 @@ public void BuyStrawberry()
         strawberryButton.interactable = false;
 
         receiptText.text += "STRAWBERRY\n";
-        priceText.text += "$40\n";
+        priceText.text += "240\n";
 
-        totalCost += 40;
+        totalCost += 20;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Strawberry!");
@@ -142,9 +142,9 @@ public void BuyMint()
 {
     if (mintBought) return;
 
-    if (_moneyManager.Money >= 60)
+    if (_moneyManager.Money >= 30)
     {
-        _moneyManager.RemoveMoney(60);
+        _moneyManager.RemoveMoney(30);
         mintBought = true;
 
         mintSpawner.SetActive(true);
@@ -153,9 +153,9 @@ public void BuyMint()
         mintButton.interactable = false;
 
         receiptText.text += "MINT\n";
-        priceText.text += "$60\n";
+        priceText.text += "$30\n";
 
-        totalCost += 60;
+        totalCost += 30;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Mint!");
@@ -170,9 +170,9 @@ public void BuyMango()
 {
     if (mangoBought) return;
 
-    if (_moneyManager.Money >= 80)
+    if (_moneyManager.Money >= 40)
     {
-        _moneyManager.RemoveMoney(80);
+        _moneyManager.RemoveMoney(40);
         mangoBought = true;
 
         mangoSpawner.SetActive(true);
@@ -181,9 +181,9 @@ public void BuyMango()
         mangoButton.interactable = false;
 
         receiptText.text += "MANGO\n";
-        priceText.text += "$80\n";
+        priceText.text += "$40\n";
 
-        totalCost += 80;
+        totalCost += 40;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Mango!");
@@ -198,9 +198,9 @@ public void BuyCookiesCream()
 {
     if (cookiesCreamBought) return;
 
-    if (_moneyManager.Money >= 100)
+    if (_moneyManager.Money >= 50)
     {
-        _moneyManager.RemoveMoney(100);
+        _moneyManager.RemoveMoney(50);
         cookiesCreamBought = true;
 
         cookiesCreamSpawner.SetActive(true);
@@ -209,9 +209,9 @@ public void BuyCookiesCream()
         cookiesCreamButton.interactable = false;
 
         receiptText.text += "COOKIES\n";
-        priceText.text += "$100\n";
+        priceText.text += "$50\n";
 
-        totalCost += 100;
+        totalCost += 50;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Cookies and Cream!");
@@ -226,9 +226,9 @@ public void BuyWhippedCream()
 {
     if (whippedCreamBought) return;
 
-    if (_moneyManager.Money >= 120)
+    if (_moneyManager.Money >= 60)
     {
-        _moneyManager.RemoveMoney(120);
+        _moneyManager.RemoveMoney(60);
         whippedCreamBought = true;
 
         whippedCreamSpawner.SetActive(true);
@@ -237,9 +237,9 @@ public void BuyWhippedCream()
         whippedCreamButton.interactable = false;
 
         receiptText.text += "CREAM\n";
-        priceText.text += "$120\n";
+        priceText.text += "60\n";
 
-        totalCost += 120;
+        totalCost += 60;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Whipped Cream!");
@@ -254,9 +254,9 @@ public void BuySprinkles()
 {
     if (sprinklesBought) return;
 
-    if (_moneyManager.Money >= 140)
+    if (_moneyManager.Money >= 70)
     {
-        _moneyManager.RemoveMoney(140);
+        _moneyManager.RemoveMoney(70);
         sprinklesBought = true;
 
         sprinklesSpawner.SetActive(true);
@@ -267,7 +267,7 @@ public void BuySprinkles()
         receiptText.text += "SPRINKLES\n";
         priceText.text += "$160\n";
 
-        totalCost += 140;
+        totalCost += 70;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Sprinkles!");
@@ -282,9 +282,9 @@ public void BuyCupOne()
 {
     if (cupOneBought) return;
 
-    if (_moneyManager.Money >= 100)
+    if (_moneyManager.Money >= 80)
     {
-        _moneyManager.RemoveMoney(100);
+        _moneyManager.RemoveMoney(80);
         cupOneBought = true;
 
         cupTwoSpawner.SetActive(true);
@@ -293,9 +293,9 @@ public void BuyCupOne()
         cupOneButton.interactable = false;
 
         receiptText.text += "CUP SLOT\n";
-        priceText.text += "$100\n";
+        priceText.text += "$80\n";
 
-        totalCost += 100;
+        totalCost += 80;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Additional Cup Slot 1!");
@@ -310,9 +310,9 @@ public void BuyCupTwo()
 {
     if (cupTwoBought) return;
 
-    if (_moneyManager.Money >= 200)
+    if (_moneyManager.Money >= 100)
     {
-        _moneyManager.RemoveMoney(200);
+        _moneyManager.RemoveMoney(100);
         cupTwoBought = true;
 
         cupTwoSpawner.SetActive(true);
@@ -321,9 +321,9 @@ public void BuyCupTwo()
        cupTwoButton.interactable = false;
 
         receiptText.text += "CUP SLOT\n";
-        priceText.text += "$200\n";
+        priceText.text += "$100\n";
 
-        totalCost += 200;
+        totalCost += 100;
         totalText.text = "$" + totalCost;
 
         Debug.Log("Bought Additional Cup Slot 2!");

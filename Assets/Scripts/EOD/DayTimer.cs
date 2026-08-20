@@ -60,6 +60,13 @@ public class DayTimer : MonoBehaviour
         {
             npc.Kill();
         }
+        
+        ParfaitCup[] cups = FindObjectsOfType<ParfaitCup>();
+
+        foreach (ParfaitCup cup in cups)
+        {
+            Destroy(cup.gameObject);
+        }
 
         Time.timeScale = 0f;
 

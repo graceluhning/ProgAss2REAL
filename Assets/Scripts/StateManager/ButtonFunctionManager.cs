@@ -12,6 +12,11 @@ public class ButtonFunctionManager : MonoBehaviour
     {
         SceneManager.LoadScene("OpeningScene");
     }
+    
+    public void RePlayGame()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
 
     public void QuitGame()
     {

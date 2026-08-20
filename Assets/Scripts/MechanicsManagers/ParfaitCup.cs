@@ -30,7 +30,6 @@ public class ParfaitCup : MonoBehaviour
 
     private DraggedTopping hoveringTopping;
 
-
     private void Update()
     {
         if (hoveringTopping == null)
@@ -43,20 +42,18 @@ public class ParfaitCup : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("IceCream") || other.CompareTag("RealTopping"))
         {
             DraggedTopping topping = other.GetComponent<DraggedTopping>();
 
-            if (topping != null)
+            if (topping != null && topping.isDragging)
             {
                 hoveringTopping = topping;
             }
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -68,13 +65,13 @@ public class ParfaitCup : MonoBehaviour
         }
     }
 
-
     private void PlaceTopping(DraggedTopping topping)
     {
+        if (topping == null)
+            return;
+
         ToppingTypes type = topping.toppingType;
-
-
-        // ICE CREAM SCOOPS
+        
         if (topping.CompareTag("IceCream"))
         {
             if (slot1 && slot2)
@@ -98,7 +95,6 @@ public class ParfaitCup : MonoBehaviour
                 slot2Type = type;
             }
 
-
             topping.SetPlaced();
 
             Destroy(topping.gameObject);
@@ -107,9 +103,7 @@ public class ParfaitCup : MonoBehaviour
 
             AddTopping(type);
         }
-
-
-        // TOPPINGS
+        
         else if (topping.CompareTag("RealTopping"))
         {
             if (!slot1 || !slot2)
@@ -124,10 +118,8 @@ public class ParfaitCup : MonoBehaviour
                 return;
             }
 
-
             slot3 = true;
             slot3Type = type;
-
 
             topping.SetPlaced();
 
@@ -139,13 +131,12 @@ public class ParfaitCup : MonoBehaviour
         }
     }
 
-
     public void AddTopping(ToppingTypes type)
     {
         totalPrice += ToppingPrices.GetPrice(type);
+
         Debug.Log("Current Price: $" + totalPrice);
     }
-
 
     private void SpawnCupVisual(ToppingTypes type, Vector3 position)
     {
@@ -153,10 +144,24 @@ public class ParfaitCup : MonoBehaviour
 
         if (prefab != null)
         {
-            Instantiate(prefab, position, Quaternion.identity, transform);
+            GameObject visual = Instantiate(
+                prefab,
+                position,
+                Quaternion.identity,
+                transform
+            );
+            
+            Rigidbody2D rb = visual.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.gravityScale = 0f;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+            }
         }
     }
-
 
     private GameObject GetCupPrefab(ToppingTypes type)
     {
