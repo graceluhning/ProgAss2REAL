@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -2112,6 +2112,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+--- !u!1 &485441714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485441716}
+  - component: {fileID: 485441715}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &485441715
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485441714}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.64
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &485441716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485441714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 973.93463, y: 463.3197, z: 3.034773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &495183100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -3095,7 +3224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -3837,7 +3966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -4737,7 +4866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: e5920f10e118b8346a7268d0bac9cb51, type: 3}
   toppingType: 6
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -4982,7 +5111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: 33ff8410d028cf34e80154c15b314fa7, type: 3}
   toppingType: 2
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -7112,7 +7241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: 81bacb54df8f44042a6bf384714b19b9, type: 3}
   toppingType: 3
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -8621,7 +8750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: b170fd1038f8c9f4497475a5d7636278, type: 3}
   toppingType: 4
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -8901,7 +9030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -9954,7 +10083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -10399,7 +10528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aed8a90d91d38545984a22a3b85b461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   cupCrashSound: {fileID: 8300000, guid: 044989ffc6aa90e448c1d209e88e6234, type: 3}
   toppingCrashSound: {fileID: 8300000, guid: 87d025795a2d67645ab0129b2765e8f2, type: 3}
   iceCreamCrashSound: {fileID: 8300000, guid: 87d025795a2d67645ab0129b2765e8f2, type: 3}
@@ -10653,7 +10782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0294b82a5c8372a44995c4db160b39d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 485441715}
   mainMenuMusic: {fileID: 8300000, guid: dbf12f88f5ecb0b47b66261566ff9496, type: 3}
   gameMusic: {fileID: 8300000, guid: cd3f657f3cf154e4bafe3036e30d8094, type: 3}
 --- !u!1 &1810163512
@@ -10938,7 +11067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -11244,7 +11373,7 @@ RectTransform:
   - {fileID: 754057998}
   - {fileID: 954502028}
   m_Father: {fileID: 527189215}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.069}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -11687,7 +11816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -11903,7 +12032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: 0f89cebca688e384481743e400da5dd5, type: 3}
   toppingType: 1
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -13141,7 +13270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6144610392911887334, guid: 41079686ae578d046919c9bcf6f7fb9d, type: 3}
   toppingType: 5
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   scoop1: {fileID: 8300000, guid: 0c768e0692ea07546a106d88d03d23fd, type: 3}
   scoop2: {fileID: 8300000, guid: 2b5c7284408668047b617b57adcbbbea, type: 3}
   scoop3: {fileID: 8300000, guid: 52be13dede280134694c8d10a6b0c90f, type: 3}
@@ -13579,7 +13708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05567b76dd69a3549b780a5de0b8d5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 158183498}
+  audioSource: {fileID: 485441715}
   hoverSound: {fileID: 8300000, guid: dbcb255ee62d9024aa6d24b273f02a76, type: 3}
   clickSound: {fileID: 8300000, guid: 8a689ede50e92044b8c0d243f6a576d2, type: 3}
   shopLogic: {fileID: 0}
@@ -13734,3 +13863,4 @@ SceneRoots:
   - {fileID: 527189215}
   - {fileID: 425088852}
   - {fileID: 2011858999}
+  - {fileID: 485441716}

@@ -18,9 +18,10 @@ public class MusicManager : MonoBehaviour
         }
 
         Instance = this;
-
-        // This keeps the MusicManager AND its AudioSource alive
+        
         DontDestroyOnLoad(gameObject);
+        
+        audioSource.loop = true;
     }
 
     private void Start()
@@ -55,7 +56,7 @@ public class MusicManager : MonoBehaviour
         {
             newMusic = gameMusic;
         }
-
+        
         if (audioSource.clip == newMusic && audioSource.isPlaying)
             return;
 
