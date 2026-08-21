@@ -5652,7 +5652,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.22760653, y: 3.311461}
+  m_Offset: {x: 0.015814245, y: -1.2276195}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5662,7 +5662,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0188258, y: 12.842103}
+  m_Size: {x: 1.5319842, y: 1.4729241}
   m_EdgeRadius: 0
 --- !u!114 &913315185
 MonoBehaviour:
@@ -5818,7 +5818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957990087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5923,46 +5923,75 @@ MonoBehaviour:
   _moneyManager: {fileID: 1382862623}
   timer: {fileID: 1363723265}
   nextDayUI: {fileID: 957990086}
-  strawberryButton: {fileID: 1415470862}
-  strawText: {fileID: 1837653744}
-  strawBought: 0
-  strawSpawner: {fileID: 1194042594}
-  chocolateButton: {fileID: 1820612738}
-  chocolateText: {fileID: 296985822}
-  chocolateBought: 0
-  chocolateSpawner: {fileID: 833511454}
-  mintButton: {fileID: 720528306}
-  mintText: {fileID: 1463469818}
-  mintBought: 0
-  mintSpawner: {fileID: 1386485211}
-  mangoButton: {fileID: 596021970}
-  mangoText: {fileID: 625021362}
-  mangoBought: 0
-  mangoSpawner: {fileID: 2118783870}
-  cookiesCreamButton: {fileID: 213749478}
-  cookiesCreamText: {fileID: 1122917267}
-  cookiesCreamBought: 0
-  cookiesCreamSpawner: {fileID: 790250535}
-  whippedCreamButton: {fileID: 1630632717}
-  whippedCreamText: {fileID: 1614018110}
-  whippedCreamBought: 0
-  whippedCreamSpawner: {fileID: 551906937}
-  sprinklesButton: {fileID: 431258175}
-  sprinklesText: {fileID: 262641398}
-  sprinklesBought: 0
-  sprinklesSpawner: {fileID: 526525669}
-  cupOneButton: {fileID: 1921814642}
-  cupOneText: {fileID: 1245041541}
-  cupOneBought: 0
-  cupOneSpawner: {fileID: 1152203389}
-  cupTwoButton: {fileID: 2140743647}
-  cupTwoText: {fileID: 1263763017}
-  cupTwoBought: 0
-  cupTwoSpawner: {fileID: 913315182}
   dayCounter: {fileID: 39694487}
   receiptText: {fileID: 1015289818}
   priceText: {fileID: 1197765446}
   totalText: {fileID: 2097143961}
+  rentText: {fileID: 266652848}
+  shopItems:
+  - itemName: Chocolate
+    receiptLabel: CHOCOLATE
+    price: 10
+    button: {fileID: 1820612738}
+    buttonText: {fileID: 296985822}
+    spawner: {fileID: 833511454}
+    bought: 0
+  - itemName: Strawberry
+    receiptLabel: STRAWBERRY
+    price: 20
+    button: {fileID: 1415470862}
+    buttonText: {fileID: 1837653744}
+    spawner: {fileID: 1194042594}
+    bought: 0
+  - itemName: Mint
+    receiptLabel: MINT
+    price: 30
+    button: {fileID: 720528306}
+    buttonText: {fileID: 1463469818}
+    spawner: {fileID: 1386485211}
+    bought: 0
+  - itemName: Mango
+    receiptLabel: MANGO
+    price: 40
+    button: {fileID: 596021970}
+    buttonText: {fileID: 625021362}
+    spawner: {fileID: 2118783870}
+    bought: 0
+  - itemName: CookiesCream
+    receiptLabel: COOKIES
+    price: 50
+    button: {fileID: 213749478}
+    buttonText: {fileID: 1122917267}
+    spawner: {fileID: 790250535}
+    bought: 0
+  - itemName: WhippedCream
+    receiptLabel: CREAM
+    price: 60
+    button: {fileID: 1630632717}
+    buttonText: {fileID: 1614018110}
+    spawner: {fileID: 551906937}
+    bought: 0
+  - itemName: Sprinkles
+    receiptLabel: SPRINKLES
+    price: 70
+    button: {fileID: 431258175}
+    buttonText: {fileID: 262641398}
+    spawner: {fileID: 526525669}
+    bought: 0
+  - itemName: CupOne
+    receiptLabel: COASTER
+    price: 80
+    button: {fileID: 1921814642}
+    buttonText: {fileID: 1245041541}
+    spawner: {fileID: 1152203389}
+    bought: 0
+  - itemName: CupTwo
+    receiptLabel: COASTER
+    price: 100
+    button: {fileID: 2140743647}
+    buttonText: {fileID: 1263763017}
+    spawner: {fileID: 913315182}
+    bought: 0
 --- !u!114 &957990092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6768,7 +6797,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.15896487, y: 3.3353233}
+  m_Offset: {x: 0.07305181, y: -1.2180754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6778,7 +6807,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.503892, y: 12.00119}
+  m_Size: {x: 1.5874844, y: 1.3479517}
   m_EdgeRadius: 0
 --- !u!114 &1152203392
 MonoBehaviour:
@@ -7290,7 +7319,7 @@ GameObject:
   - component: {fileID: 1245041542}
   - component: {fileID: 1245041541}
   m_Layer: 5
-  m_Name: CupText
+  m_Name: Cuptext1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7804,7 +7833,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.4379121, y: 3.4874244}
+  m_Offset: {x: 0.005973041, y: -1.295077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7814,7 +7843,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.4728818, y: 12.465371}
+  m_Size: {x: 1.5851122, y: 1.4684803}
   m_EdgeRadius: 0
 --- !u!114 &1310310695
 MonoBehaviour:
@@ -8480,7 +8509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28059b503947daa46967e8b2dcfbd756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: 0
+  Money: 100
   moneyText: {fileID: 754057999}
 --- !u!4 &1382862624
 Transform:

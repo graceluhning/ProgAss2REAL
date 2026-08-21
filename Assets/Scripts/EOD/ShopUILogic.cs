@@ -1,66 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
+
+[System.Serializable]
+public class ShopItem
+{
+    public string itemName;
+
+    public string receiptLabel;
+
+    public int price;
+
+    public Button button;
+    public TMP_Text buttonText;
+
+    public GameObject spawner;
+
+    [HideInInspector] public bool bought;
+}
 
 public class ShopUILogic : MonoBehaviour
 {
     [SerializeField] private MoneyManager _moneyManager;
     [SerializeField] private DayTimer timer;
 
-    [SerializeField] GameObject nextDayUI;
-
-    [SerializeField] private Button strawberryButton;
-    [SerializeField] TMP_Text strawText;
-    public bool strawBought;
-    [SerializeField] private GameObject strawSpawner;
-
-    [SerializeField] private Button chocolateButton;
-    [SerializeField] TMP_Text chocolateText;
-    public bool chocolateBought;
-    [SerializeField] private GameObject chocolateSpawner;
-
-    [SerializeField] private Button mintButton;
-    [SerializeField] TMP_Text mintText;
-    public bool mintBought;
-    [SerializeField] private GameObject mintSpawner;
-
-    [SerializeField] private Button mangoButton;
-    [SerializeField] TMP_Text mangoText;
-    public bool mangoBought;
-    [SerializeField] private GameObject mangoSpawner;
-
-
-    [SerializeField] private Button cookiesCreamButton;
-    [SerializeField] TMP_Text cookiesCreamText;
-    public bool cookiesCreamBought;
-    [SerializeField] private GameObject cookiesCreamSpawner;
-
-    [SerializeField] private Button whippedCreamButton;
-    [SerializeField] TMP_Text whippedCreamText;
-    public bool whippedCreamBought;
-    [SerializeField] private GameObject whippedCreamSpawner;
-
-    [SerializeField] private Button sprinklesButton;
-    [SerializeField] TMP_Text sprinklesText;
-    public bool sprinklesBought;
-    [SerializeField] private GameObject sprinklesSpawner;
-
-    [SerializeField] private Button cupOneButton;
-    [SerializeField] TMP_Text cupOneText;
-    public bool cupOneBought;
-    [SerializeField] private GameObject cupOneSpawner;
-
-    [SerializeField] private Button cupTwoButton;
-    [SerializeField] TMP_Text cupTwoText;
-    public bool cupTwoBought;
-    [SerializeField] private GameObject cupTwoSpawner;
+    [SerializeField] private GameObject nextDayUI;
 
     [SerializeField] public DayCounter dayCounter;
     [SerializeField] private TMP_Text receiptText;
     [SerializeField] private TMP_Text priceText;
     [SerializeField] private TMP_Text totalText;
+    [SerializeField] private TMP_Text rentText;
+
+    [SerializeField] private List<ShopItem> shopItems = new List<ShopItem>();
 
     private int totalCost = 0;
+
+
+    private void Awake()
+    {
+        foreach (var item in shopItems)
+        {
+            var capturedItem = item;
+
+            if (capturedItem.button != null)
+                capturedItem.button.onClick.AddListener(() => BuyItem(capturedItem));
+        }
+    }
+
+
+    private void Start()
+    {
+        UpdateShopTotal();
+    }
+
+
+    private void UpdateShopTotal()
+    {
+     
+        int rent = dayCounter.dayCount * 5;
+
+   
+        rentText.text = "$" + rent;
+
+        
+        int grandTotal = totalCost + rent;
+
+  
+        totalText.text = "$" + grandTotal;
+    }
+
 
     public void NextDay()
     {
@@ -74,263 +86,65 @@ public class ShopUILogic : MonoBehaviour
 
         dayCounter.NextDay();
 
-        totalCost = (10 * dayCounter.dayCount);
+
+        totalCost = 0;
+
+    
+        UpdateShopTotal();
 
         timer.ResetTimer();
 
         Debug.Log("Day: " + dayCounter.dayCount);
+        Debug.Log("Rent: $" + (dayCounter.dayCount * 5));
 
         GameManager.Instance.ChangeState(GameState.Playing);
     }
-public void BuyChocolate()
-{
-    if (chocolateBought) return;
 
-    if (_moneyManager.Money >= 10)
+
+    public void BuyItem(ShopItem item)
     {
-        _moneyManager.RemoveMoney(10);
-        chocolateBought = true;
+        if (item == null || item.bought) return;
 
-        chocolateSpawner.SetActive(true);
+        if (_moneyManager.Money >= item.price)
+        {
+            _moneyManager.RemoveMoney(item.price);
+            item.bought = true;
 
-        chocolateText.text = "";
-        chocolateButton.interactable = false;
+            if (item.spawner != null)
+                item.spawner.SetActive(true);
 
-        receiptText.text += "CHOCOLATE\n";
-        priceText.text += "10\n";
+            if (item.buttonText != null)
+                item.buttonText.text = "";
 
-        totalCost += 10;
-        totalText.text = "$" + totalCost;
+            if (item.button != null)
+                item.button.interactable = false;
 
-        Debug.Log("Bought Chocolate!");
+           
+            receiptText.text += item.receiptLabel + "\n";
+            priceText.text += "$" + item.price + "\n";
+
+          
+            totalCost += item.price;
+
+           
+            UpdateShopTotal();
+
+        }
+        else
+        {
+            Debug.Log("Not enough coins!");
+        }
     }
-    else
+
+
+    public void BuyItemByName(string itemName)
     {
-        Debug.Log("Not enough coins!");
+        BuyItem(shopItems.FirstOrDefault(i => i.itemName == itemName));
     }
-}
 
-public void BuyStrawberry()
-{
-    if (strawBought) return;
 
-    if (_moneyManager.Money >= 20)
+    public bool IsBought(string itemName)
     {
-        _moneyManager.RemoveMoney(20);
-        strawBought = true;
-
-        strawSpawner.SetActive(true);
-
-        strawText.text = "";
-        strawberryButton.interactable = false;
-
-        receiptText.text += "STRAWBERRY\n";
-        priceText.text += "240\n";
-
-        totalCost += 20;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Strawberry!");
+        return shopItems.FirstOrDefault(i => i.itemName == itemName)?.bought ?? false;
     }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyMint()
-{
-    if (mintBought) return;
-
-    if (_moneyManager.Money >= 30)
-    {
-        _moneyManager.RemoveMoney(30);
-        mintBought = true;
-
-        mintSpawner.SetActive(true);
-
-        mintText.text = "";
-        mintButton.interactable = false;
-
-        receiptText.text += "MINT\n";
-        priceText.text += "$30\n";
-
-        totalCost += 30;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Mint!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyMango()
-{
-    if (mangoBought) return;
-
-    if (_moneyManager.Money >= 40)
-    {
-        _moneyManager.RemoveMoney(40);
-        mangoBought = true;
-
-        mangoSpawner.SetActive(true);
-
-        mangoText.text = "";
-        mangoButton.interactable = false;
-
-        receiptText.text += "MANGO\n";
-        priceText.text += "$40\n";
-
-        totalCost += 40;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Mango!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyCookiesCream()
-{
-    if (cookiesCreamBought) return;
-
-    if (_moneyManager.Money >= 50)
-    {
-        _moneyManager.RemoveMoney(50);
-        cookiesCreamBought = true;
-
-        cookiesCreamSpawner.SetActive(true);
-
-        cookiesCreamText.text = "";
-        cookiesCreamButton.interactable = false;
-
-        receiptText.text += "COOKIES\n";
-        priceText.text += "$50\n";
-
-        totalCost += 50;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Cookies and Cream!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyWhippedCream()
-{
-    if (whippedCreamBought) return;
-
-    if (_moneyManager.Money >= 60)
-    {
-        _moneyManager.RemoveMoney(60);
-        whippedCreamBought = true;
-
-        whippedCreamSpawner.SetActive(true);
-
-        whippedCreamText.text = "";
-        whippedCreamButton.interactable = false;
-
-        receiptText.text += "CREAM\n";
-        priceText.text += "60\n";
-
-        totalCost += 60;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Whipped Cream!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuySprinkles()
-{
-    if (sprinklesBought) return;
-
-    if (_moneyManager.Money >= 70)
-    {
-        _moneyManager.RemoveMoney(70);
-        sprinklesBought = true;
-
-        sprinklesSpawner.SetActive(true);
-
-        sprinklesText.text = "";
-        sprinklesButton.interactable = false;
-
-        receiptText.text += "SPRINKLES\n";
-        priceText.text += "$160\n";
-
-        totalCost += 70;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Sprinkles!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyCupOne()
-{
-    if (cupOneBought) return;
-
-    if (_moneyManager.Money >= 80)
-    {
-        _moneyManager.RemoveMoney(80);
-        cupOneBought = true;
-
-        cupTwoSpawner.SetActive(true);
-
-        cupOneText.text = "";
-        cupOneButton.interactable = false;
-
-        receiptText.text += "CUP SLOT\n";
-        priceText.text += "$80\n";
-
-        totalCost += 80;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Additional Cup Slot 1!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
-
-public void BuyCupTwo()
-{
-    if (cupTwoBought) return;
-
-    if (_moneyManager.Money >= 100)
-    {
-        _moneyManager.RemoveMoney(100);
-        cupTwoBought = true;
-
-        cupTwoSpawner.SetActive(true);
-        
-        cupTwoText.text = "";
-       cupTwoButton.interactable = false;
-
-        receiptText.text += "CUP SLOT\n";
-        priceText.text += "$100\n";
-
-        totalCost += 100;
-        totalText.text = "$" + totalCost;
-
-        Debug.Log("Bought Additional Cup Slot 2!");
-    }
-    else
-    {
-        Debug.Log("Not enough coins!");
-    }
-}
 }

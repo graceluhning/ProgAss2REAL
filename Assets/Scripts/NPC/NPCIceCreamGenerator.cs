@@ -42,25 +42,27 @@ public class IceCreamOrderGenerator : MonoBehaviour
         iceCreamChoices.Add(ToppingTypes.Vanilla);
         toppingChoices.Add(ToppingTypes.Cherry);
 
-        if (shopUI.chocolateBought)
+        // These item names must match the "itemName" keys you set on each
+        // ShopItem entry in ShopUILogic's inspector list.
+        if (shopUI.IsBought("Chocolate"))
             iceCreamChoices.Add(ToppingTypes.Chocolate);
 
-        if (shopUI.strawBought)
+        if (shopUI.IsBought("Strawberry"))
             iceCreamChoices.Add(ToppingTypes.Strawberry);
 
-        if (shopUI.mintBought)
+        if (shopUI.IsBought("Mint"))
             iceCreamChoices.Add(ToppingTypes.Mint);
 
-        if (shopUI.mangoBought)
+        if (shopUI.IsBought("Mango"))
             iceCreamChoices.Add(ToppingTypes.Mango);
 
-        if (shopUI.cookiesCreamBought)
+        if (shopUI.IsBought("CookiesCream"))
             iceCreamChoices.Add(ToppingTypes.CookiesCream);
 
-        if (shopUI.whippedCreamBought)
+        if (shopUI.IsBought("WhippedCream"))
             toppingChoices.Add(ToppingTypes.WhippedCream);
 
-        if (shopUI.sprinklesBought)
+        if (shopUI.IsBought("Sprinkles"))
             toppingChoices.Add(ToppingTypes.Sprinkles);
 
 
